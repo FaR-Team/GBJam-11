@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Transform movePoint;
 
+    public LayerMask whatStopsMovement;
+
     void Start()
     {
         gbConsoleController = GBConsoleController.GetInstance();
@@ -18,21 +21,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (gbConsoleController.Input.UpJustPressed)
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            transform.Translate(Vector2.up);
-        }
-        else if (gbConsoleController.Input.DownJustPressed)
-        {
-            transform.Translate(Vector2.down);
-        }
-        else if (gbConsoleController.Input.LeftJustPressed)
-        {
-            transform.Translate(Vector2.left);
-        }
-        else if (gbConsoleController.Input.RightJustPressed)
-        {
-            transform.Translate(Vector2.right);
+            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+            {
+                if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, whatStopsMovement))
+                {
+                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                }
+            } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .1f, whatStopsMovement))
+                {
+                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                }
+            }
         }
     }
 }
