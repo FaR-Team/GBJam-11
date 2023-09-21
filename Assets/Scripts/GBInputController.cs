@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace GBTemplate
 {
@@ -11,26 +8,33 @@ namespace GBTemplate
         public bool Up;
         public bool UpJustPressed;
         public float UpPressedTime;
+
         public bool Down;
         public bool DownJustPressed;
         public float DownPressedTime;
+
         public bool Left;
         public bool LeftJustPressed;
         public float LeftPressedTime;
+
         public bool Right;
         public bool RightJustPressed;
         public float RightPressedTime;
+
         public bool ButtonA;
         public bool ButtonAJustPressed;
         public bool ButtonAJustReleased;
         public float ButtonAPressedTime;
+
         public bool ButtonB;
         public bool ButtonBJustPressed;
         public bool ButtonBJustReleased;
         public float ButtonBPressedTime;
+
         public bool ButtonSelect;
         public bool ButtonSelectJustPressed;
         public float ButtonSelectPressedTime;
+
         public bool ButtonStart;
         public bool ButtonStartJustPressed;
         public float ButtonStartPressedTime;
@@ -63,6 +67,7 @@ namespace GBTemplate
             {
                 UpPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!Down)
             {
                 DownPressedTime = 0;
@@ -71,6 +76,7 @@ namespace GBTemplate
             {
                 DownPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!Left)
             {
                 LeftPressedTime = 0;
@@ -79,6 +85,7 @@ namespace GBTemplate
             {
                 LeftPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!Right)
             {
                 RightPressedTime = 0;
@@ -87,6 +94,7 @@ namespace GBTemplate
             {
                 RightPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!ButtonA)
             {
                 ButtonAJustReleased = (ButtonAPressedTime > 0);
@@ -96,6 +104,7 @@ namespace GBTemplate
             {
                 ButtonAPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!ButtonB)
             {
                 ButtonBJustReleased = (ButtonBPressedTime > 0);
@@ -105,6 +114,7 @@ namespace GBTemplate
             {
                 ButtonBPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!ButtonSelect)
             {
                 ButtonSelectPressedTime = 0;
@@ -113,6 +123,7 @@ namespace GBTemplate
             {
                 ButtonSelectPressedTime += Time.unscaledDeltaTime;
             }
+
             if (!ButtonStart)
             {
                 ButtonStartPressedTime = 0;

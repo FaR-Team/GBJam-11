@@ -24,7 +24,7 @@ public class House : MonoBehaviour
 
     public Room SpawnRoom(Vector3 position)
     {
-        if (!Habitaciones.TryGetValue(position, out Room room)) 
+        if (!Habitaciones.TryGetValue(position, out Room room))
         {
             RandomizeRoom();
             Room _room = Instantiate(selectedPrefab, position, Quaternion.identity).GetComponent<Room>();
@@ -38,7 +38,7 @@ public class House : MonoBehaviour
 
     public Room GetRoom(Vector3 position)
     {
-        if (Habitaciones.TryGetValue(position, out Room room)) 
+        if (Habitaciones.TryGetValue(position, out Room room))
         {
             room.cameraVector = new Vector3(position.x - 1, position.y - 1, -3);
             return room;
@@ -60,9 +60,9 @@ public class House : MonoBehaviour
         Vector3 initialCameraPos = _mainCam.transform.position;
         // Igualamos la distancia en Z para evitar problemas
         position.z = initialCameraPos.z;
-        
+
         float elapsedTime = 0;
-       // float waitTime = roomTransitionTime;
+        // float waitTime = roomTransitionTime;
 
         while (elapsedTime < roomTransitionTime)
         {
@@ -80,5 +80,11 @@ public class House : MonoBehaviour
     {
         int index = Random.Range(0, roomPrefabs.Length);
         selectedPrefab = roomPrefabs[index];
+    }
+
+
+    public static Room ActualRoom()
+    {
+        return null;
     }
 }
