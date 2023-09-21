@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    DoorData[] doors;
+    public DoorData[] doors;
+    public Vector3 cameraVector;
+    public bool isMain = false;
 
-    public bool isTopOpen = false;
-    public bool isBottomOpen = false;
-    public bool isLeftOpen = false;
-    public bool isRightOpen = false;
+    public int paletteNum;
 
-    public Vector3 cameraVector = new Vector3(0,0,0);
+    public void Start() 
+    {
+        if (isMain)
+        {
+            House.instance.Habitaciones.Add(this.transform.position, this);
+            paletteNum = Random.Range(0, ColourChanger.instance.colorPalettes.Length);
+            cameraVector = new Vector3(transform.position.x - 1, transform.position.y - 1, -3);
+        }
+    }
 
-
+    public void Init()
+    {
+        paletteNum = Random.Range(0, ColourChanger.instance.colorPalettes.Length);
+        cameraVector = new Vector3(transform.position.x - 1, transform.position.y - 1, -3);
+    }
 }

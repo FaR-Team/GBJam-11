@@ -12,14 +12,20 @@ public class DoorData : MonoBehaviour
         Right
     }
 
+    public bool isUnlocked = false;
+
     public DoorType doorType;
     public Vector3 spawnPoint;
-    private Room MyRoom;
+    private Room NextRoom;
+    private Room thisRoom;
     private Transform roomPosition;
+    private Vector3 roomCameraPosition;
 
     void Start()
     {
         roomPosition = transform.parent;
+        thisRoom = transform.parent.GetComponent<Room>();
+
         SetSpawnPoint();
     }
 
@@ -29,6 +35,8 @@ public class DoorData : MonoBehaviour
         {
             roomPosition = transform.parent;
         }
+
+
         switch (doorType)
         {
             case DoorType.Top:
@@ -48,21 +56,44 @@ public class DoorData : MonoBehaviour
         }
     }
 
+    public void UnlockOtherRoomsDoor()
+    {
+        switch (doorType)
+        {
+            case DoorType.Top:
+                NextRoom.doors[1].isUnlocked = true;
+                break;
+            case DoorType.Bottom:
+                if (NextRoom.isMain) return;
+                NextRoom.doors[0].isUnlocked = true;
+                break;
+            case DoorType.Left:
+                NextRoom.doors[3].isUnlocked = true;
+                break;
+            case DoorType.Right:
+                NextRoom.doors[2].isUnlocked = true;
+                break;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            if (MyRoom == null)
+            if (!isUnlocked)
             {
-                MyRoom = House.instance.SpawnRoom(spawnPoint, doorType);
-                Camera.main.transform.position = MyRoom.cameraVector;
+                NextRoom = House.instance.SpawnRoom(spawnPoint);
+                House.instance.TransitionToRoom(thisRoom.cameraVector);
+                isUnlocked = true;
+                UnlockOtherRoomsDoor();
             }
-            else if (MyRoom != null)
+            else if (isUnlocked)
             {
-                House.instance.GetRoom(spawnPoint);
-                Camera.main.transform.position = MyRoom.cameraVector;
-            }
+                NextRoom = House.instance.GetRoom(spawnPoint);
 
+                House.instance.TransitionToRoom(thisRoom.cameraVector);
+                ColourChanger.instance.ChangeColour(thisRoom.paletteNum);
+            }
         }
         else
         {

@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0830890bbc9f9a147841cb3a918474f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUnlocked: 0
   doorType: 3
   spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &5748501361348794200
@@ -224,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0830890bbc9f9a147841cb3a918474f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUnlocked: 0
   doorType: 1
   spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &5748501361412697536
@@ -634,6 +636,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b51d844c824ba14a88c97b8f92f5cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors:
+  - {fileID: 5748501363029740194}
+  - {fileID: 5748501361412697537}
+  - {fileID: 5748501362297983718}
+  - {fileID: 5748501361348794207}
   cameraVector: {x: 0, y: 0, z: 0}
 --- !u!1 &5748501362297983713
 GameObject:
@@ -733,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0830890bbc9f9a147841cb3a918474f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUnlocked: 0
   doorType: 2
   spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &5748501362297983719
@@ -1159,6 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0830890bbc9f9a147841cb3a918474f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUnlocked: 0
   doorType: 0
   spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &5748501363029740192
