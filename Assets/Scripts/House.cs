@@ -9,6 +9,7 @@ public class House : MonoBehaviour
     public GameObject selectedPrefab;
     public Dictionary<Vector3, Room> Habitaciones = new Dictionary<Vector3, Room>();
 
+    [SerializeField] private float roomTransitionTime = .3f;
     private Camera _mainCam;
 
     void Awake()
@@ -61,11 +62,11 @@ public class House : MonoBehaviour
         position.z = initialCameraPos.z;
         
         float elapsedTime = 0;
-        float waitTime = .7f;
+       // float waitTime = roomTransitionTime;
 
-        while (elapsedTime < waitTime)
+        while (elapsedTime < roomTransitionTime)
         {
-            _mainCam.transform.position = Vector3.Lerp(initialCameraPos, position, elapsedTime / waitTime);
+            _mainCam.transform.position = Vector3.Lerp(initialCameraPos, position, elapsedTime / roomTransitionTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
