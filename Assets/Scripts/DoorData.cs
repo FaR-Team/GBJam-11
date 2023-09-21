@@ -83,7 +83,7 @@ public class DoorData : MonoBehaviour
             if (!isUnlocked)
             {
                 NextRoom = House.instance.SpawnRoom(spawnPoint);
-                House.instance.TransitionToRoom(thisRoom.cameraVector);
+                House.instance.TransitionToRoom(thisRoom.cameraVector, thisRoom.paletteNum);
                 isUnlocked = true;
                 UnlockOtherRoomsDoor();
             }
@@ -91,8 +91,7 @@ public class DoorData : MonoBehaviour
             {
                 NextRoom = House.instance.GetRoom(spawnPoint);
 
-                House.instance.TransitionToRoom(thisRoom.cameraVector);
-                ColourChanger.instance.ChangeColour(thisRoom.paletteNum);
+                House.instance.TransitionToRoom(thisRoom.cameraVector, thisRoom.paletteNum);
             }
         }
         else

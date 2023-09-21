@@ -46,16 +46,16 @@ public class House : MonoBehaviour
         else return null;
     }
 
-    public void TransitionToRoom(Vector3 position)
+    public void TransitionToRoom(Vector3 position, int color)
     {
         // Si ya estamos en la habitacion, no mover, pensar mejor forma de hacer que no se interactue con las
         // puertas de la habitacion en la que ya estamos
         if (_mainCam.transform.position == position) return;
         StopAllCoroutines();
-        StartCoroutine(MoveCamNextRoom(position));
+        StartCoroutine(MoveCamNextRoom(position, color));
     }
 
-    IEnumerator MoveCamNextRoom(Vector3 position)
+    IEnumerator MoveCamNextRoom(Vector3 position, int color)
     {
         Vector3 initialCameraPos = _mainCam.transform.position;
         // Igualamos la distancia en Z para evitar problemas
@@ -72,6 +72,7 @@ public class House : MonoBehaviour
         }
         // Para que se complete el Lerp
         _mainCam.transform.position = Vector3.Lerp(initialCameraPos, position, 1f);
+        ColourChanger.instance.ChangeColour(color);
         yield return null;
     }
 
