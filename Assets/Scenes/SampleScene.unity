@@ -174,7 +174,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.50045407, y: 0.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -239,7 +239,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -493129844, guid: 433233175be342146b51be97287ba0ef, type: 3}
+  m_Sprite: {fileID: -1308171617, guid: 0d52806bd11faff4cbc116637ae34b87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -484,6 +484,7 @@ MonoBehaviour:
   - {fileID: 5748501361486919024, guid: 2efb1333c3ce84848966928dc931ba4c, type: 3}
   - {fileID: 5748501361486919024, guid: b8bba40f1c4cd4f45b4719926a492a04, type: 3}
   selectedPrefab: {fileID: 0}
+  roomTransitionTime: 0.3
 --- !u!1 &348315245
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,7 +996,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.50045407, y: 0.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1060,7 +1061,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1233162965, guid: 433233175be342146b51be97287ba0ef, type: 3}
+  m_Sprite: {fileID: -996418816, guid: 0d52806bd11faff4cbc116637ae34b87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1146,7 +1147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -333899988, guid: 433233175be342146b51be97287ba0ef, type: 3}
+  m_Sprite: {fileID: -1754492020, guid: 0d52806bd11faff4cbc116637ae34b87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1189,7 +1190,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.50045407, y: 0.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

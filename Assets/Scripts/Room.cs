@@ -15,7 +15,7 @@ public class Room : MonoBehaviour
         if (isMain)
         {
             House.instance.Habitaciones.Add(this.transform.position, this);
-            paletteNum = Random.Range(0, ColourChanger.instance.colorPalettes.Length);
+            paletteNum = 0;
             cameraVector = new Vector3(transform.position.x - 1, transform.position.y - 1, -3);
         }
     }
