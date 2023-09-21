@@ -941,8 +941,9 @@ MonoBehaviour:
   - {fileID: 1018590026}
   - {fileID: 66243693}
   - {fileID: 996624852}
-  isMain: 1
   cameraVector: {x: 0, y: 0, z: 0}
+  isMain: 1
+  paletteNum: 0
 --- !u!1 &996624849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881136532}
   - component: {fileID: 1881136533}
+  - component: {fileID: 1881136534}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -1417,7 +1419,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -725404168, guid: 91acd8664b3cd85438dd1964acfc8d30, type: 3}
+  m_Sprite: {fileID: 1973450518, guid: 91acd8664b3cd85438dd1964acfc8d30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1428,6 +1430,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1881136534
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881136531}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b4e717905971c24bbe50d9a2f47113a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2043652582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ae390977dd4c144b4e46176a4feaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1881136534}
   moveSpeed: 5
   movePoint: {fileID: 1145737935}
   whatStopsMovement:
@@ -1526,7 +1549,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!1 &2138823656
 GameObject:

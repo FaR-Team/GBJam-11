@@ -9,12 +9,16 @@ public class House : MonoBehaviour
     public GameObject selectedPrefab;
     public Dictionary<Vector3, Room> Habitaciones = new Dictionary<Vector3, Room>();
 
+    private Camera _mainCam;
+
     void Awake()
     {
         if (instance == null || instance != this)
         {
             instance = this;
         }
+
+        _mainCam = Camera.main;
     }
 
     public Room SpawnRoom(Vector3 position)
@@ -43,20 +47,30 @@ public class House : MonoBehaviour
 
     public void TransitionToRoom(Vector3 position)
     {
+        // Si ya estamos en la habitacion, no mover, pensar mejor forma de hacer que no se interactue con las
+        // puertas de la habitacion en la que ya estamos
+        if (_mainCam.transform.position == position) return;
+        StopAllCoroutines();
         StartCoroutine(MoveCamNextRoom(position));
     }
 
     IEnumerator MoveCamNextRoom(Vector3 position)
     {
+        Vector3 initialCameraPos = _mainCam.transform.position;
+        // Igualamos la distancia en Z para evitar problemas
+        position.z = initialCameraPos.z;
+        
         float elapsedTime = 0;
         float waitTime = .7f;
 
         while (elapsedTime < waitTime)
         {
-            Camera.main.transform.position = Vector3.Lerp(position, Camera.main.transform.position, elapsedTime / waitTime);
+            _mainCam.transform.position = Vector3.Lerp(initialCameraPos, position, elapsedTime / waitTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        // Para que se complete el Lerp
+        _mainCam.transform.position = Vector3.Lerp(initialCameraPos, position, 1f);
         yield return null;
     }
 

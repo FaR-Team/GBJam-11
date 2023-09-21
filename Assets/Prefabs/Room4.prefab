@@ -125,7 +125,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
 --- !u!1 &5748501361412697549
 GameObject:
@@ -252,7 +252,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
 --- !u!1 &5748501361437210338
 GameObject:
@@ -750,6 +750,8 @@ MonoBehaviour:
   - {fileID: 5748501362297983718}
   - {fileID: 5748501361348794207}
   cameraVector: {x: 0, y: 0, z: 0}
+  isMain: 0
+  paletteNum: 0
 --- !u!1 &5748501362297983713
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +877,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
 --- !u!1 &5748501362485557122
 GameObject:
@@ -1302,5 +1304,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0

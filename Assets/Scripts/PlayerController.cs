@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private GBConsoleController gbConsoleController;
 
+    [SerializeField] private Animator anim;
     public float moveSpeed = 5f;
     public Transform movePoint;
 
@@ -21,20 +22,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+        if (transform.position != movePoint.position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+            anim.SetBool("IsWalking", true);
+        }
+        else anim.SetBool("IsWalking", false);
+
+        var xInput = Input.GetAxisRaw("Horizontal");
+        var yInput = Input.GetAxisRaw("Vertical");
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+            if (Mathf.Abs(xInput) == 1f)
             {
-                if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, whatStopsMovement))
+                transform.up = Vector2.right * xInput;
+                if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(xInput, 0f, 0f), .1f, whatStopsMovement))
                 {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    movePoint.position += new Vector3(xInput, 0f, 0f);
                 }
-            } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .1f, whatStopsMovement))
+            } else if (Mathf.Abs(yInput) == 1f)
+            {
+                transform.up = Vector2.up * yInput;
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, yInput, 0f), .1f, whatStopsMovement))
                 {
-                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    movePoint.position += new Vector3(0f, yInput, 0f);
                 }
             }
         }
