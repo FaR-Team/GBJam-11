@@ -6,8 +6,19 @@ public class House : MonoBehaviour
 {
     public static House instance;
     public GameObject[] roomPrefabs;
+    public GameObject[] roomTopPrefabs;
+    public GameObject[] roomBottomPrefabs;
+    public GameObject[] roomLeftPrefabs;
+    public GameObject[] roomRightPrefabs;
+    public GameObject[] roomTopLeftCornerPrefabs;
+    public GameObject[] roomTopRightCornerPrefabs;
+    public GameObject[] roomBottomLeftCornerPrefabs;
+    public GameObject[] roomBottomRightCornerPrefabs;
     public GameObject selectedPrefab;
     public Dictionary<Vector3, Room> Habitaciones = new Dictionary<Vector3, Room>();
+
+    public int roomHeight = 9;
+    public int roomWidth = 10;
 
     [SerializeField] private float roomTransitionTime = .3f;
     private Camera _mainCam;
@@ -26,21 +37,63 @@ public class House : MonoBehaviour
     {
         if (!Habitaciones.TryGetValue(position, out Room room))
         {
-            RandomizeRoom();
+            int x = (int)position.x / roomWidth;
+            int y = (int)position.y / roomHeight;
+            WichRoomToSpawnPos(x, y);
             Room _room = Instantiate(selectedPrefab, position, Quaternion.identity).GetComponent<Room>();
             _room.Init();
             Habitaciones.Add(position, _room);
-            _room.cameraVector = new Vector3(position.x - 1, position.y - 1, -3);
+            _room.cameraVector = new Vector3(position.x, position.y, -3);
             return _room;
         }
         else return GetRoom(position);
+    }
+
+    public void WichRoomToSpawnPos(int x, int y)
+    {
+        if (x == -7 && y == 0)
+        {
+            RandomizeRoom("TopLeftCorner");
+        }
+        else if (x == 8 && y == 0)
+        {
+            RandomizeRoom("TopRightCorner");
+        }
+        else if (x == -7 && y == -15)
+        {
+            RandomizeRoom("BottomLeftCorner");
+        }
+        else if (x == 8 && y == -15)
+        {
+            RandomizeRoom("BottomRightCorner");
+        }
+        else if (x == -7)
+        {
+            RandomizeRoom("left");
+        }
+        else if (x == 8)
+        {
+            RandomizeRoom("right");
+        }
+        else if (y == 0)
+        {
+            RandomizeRoom("Top");
+        }
+        else if (y == -15)
+        {
+            RandomizeRoom("Bottom");
+        }
+        else
+        {
+            RandomizeRoom("center");
+        }
     }
 
     public Room GetRoom(Vector3 position)
     {
         if (Habitaciones.TryGetValue(position, out Room room))
         {
-            room.cameraVector = new Vector3(position.x - 1, position.y - 1, -3);
+            room.cameraVector = new Vector3(position.x, position.y, -3);
             return room;
         }
         else return null;
@@ -76,10 +129,53 @@ public class House : MonoBehaviour
         yield return null;
     }
 
-    void RandomizeRoom()
+    void RandomizeRoom(string type)
     {
-        int index = Random.Range(0, roomPrefabs.Length);
-        selectedPrefab = roomPrefabs[index];
+        if (type == "center")
+        {
+            int index = Random.Range(0, roomPrefabs.Length);
+            selectedPrefab = roomPrefabs[index];
+        }
+        else if (type == "Top")
+        {
+            int index = Random.Range(0, roomTopPrefabs.Length);
+            selectedPrefab = roomTopPrefabs[index];
+        }
+        else if (type == "Bottom")
+        {
+            int index = Random.Range(0, roomBottomPrefabs.Length);
+            selectedPrefab = roomBottomPrefabs[index];
+        }
+        else if (type == "left")
+        {
+            int index = Random.Range(0, roomLeftPrefabs.Length);
+            selectedPrefab = roomLeftPrefabs[index];
+        }
+        else if (type == "Right")
+        {
+            int index = Random.Range(0, roomRightPrefabs.Length);
+            selectedPrefab = roomRightPrefabs[index];
+        }
+        else if (type == "TopLeftCorner")
+        {
+            int index = Random.Range(0, roomTopLeftCornerPrefabs.Length);
+            selectedPrefab = roomTopLeftCornerPrefabs[index];
+        }
+        else if (type == "TopRightCorner")
+        {
+            int index = Random.Range(0, roomTopRightCornerPrefabs.Length);
+            selectedPrefab = roomTopRightCornerPrefabs[index];
+        }
+        else if (type == "BottomLeftCorner")
+        {
+            int index = Random.Range(0, roomBottomLeftCornerPrefabs.Length);
+            selectedPrefab = roomBottomLeftCornerPrefabs[index];
+        }
+        else if (type == "BottomRightCorner")
+        {
+            int index = Random.Range(0, roomBottomRightCornerPrefabs.Length);
+            selectedPrefab = roomBottomRightCornerPrefabs[index];
+        }
     }
 
 
