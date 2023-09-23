@@ -8,7 +8,7 @@ public class FurniturePreview : MonoBehaviour
     [SerializeField] private FurnitureData furnitureData;
     [SerializeField] private SpriteRenderer[] spriteRenderers;
     [SerializeField] private Sprite[] sprites;
-    
+
     private Vector2Int originalSize;
 
     /* *
@@ -45,7 +45,8 @@ public class FurniturePreview : MonoBehaviour
     {
         rotation++;
 
-        if (rotation >= 4) rotation = 0;
+        if (rotation >= 4)
+            rotation = 0;
 
         switch (rotation)
         {
@@ -74,6 +75,7 @@ public class FurniturePreview : MonoBehaviour
             default:
                 break;
         }
+
         transform.rotation = Quaternion.Euler(furnitureData.VectorRotation);
     }
 }
