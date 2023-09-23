@@ -15,4 +15,8 @@ MonoBehaviour:
   Name: Sofa
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 88d5892fcfe7aee43958631d0218d1b3, type: 3}
+  typeOfSize: 3
   compatibles: []
+  sprites:
+  - {fileID: -1451224422, guid: 0e6fca532dcff7a40922e7dc71e26297, type: 3}
+  - {fileID: -1503374730, guid: 0e6fca532dcff7a40922e7dc71e26297, type: 3}

@@ -1,25 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Runtime.InteropServices;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class FurniturePreview : MonoBehaviour
 {
-    [SerializeField] private FurnitureOriginalData data;
+    public FurnitureOriginalData data;
+
     [SerializeField] private InputAction inputMaster;
     [SerializeField] private FurnitureData furnitureData;
-    [SerializeField] private SpriteRenderer[] spriteRenderers;
-    [SerializeField] private Sprite[] sprites;
+
+    [SerializeField] private Inventory inventory;
 
     private Vector2Int originalSize;
 
-    /* *
-     
-     
-     
-     */
     int rotation = 0;
     private Vector2Int position;
 
     private void Awake()
+    {
+        SetFurnitureData();
+    }
+
+    private void SetFurnitureData()
     {
         originalSize = data.size;
         furnitureData.size = data.size;
@@ -27,9 +29,23 @@ public class FurniturePreview : MonoBehaviour
         furnitureData.compatibles = data.compatibles;
         furnitureData.originalData = data;
     }
-    private void Update()
-    {
 
+    private void OnEnable()
+    {
+        SetFurnitureData();
+
+        var playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+        if(Mathf.Abs(playerPos.x - Mathf.Floor(playerPos.x)) != 0.5f)
+        {
+            playerPos.x = Mathf.Floor(playerPos.x) + 0.5f;
+        }
+        if (Mathf.Abs(playerPos.y - Mathf.Floor(playerPos.y)) != 0f)
+        {
+            playerPos.y = Mathf.Floor(playerPos.y);
+        }
+
+        transform.position = playerPos;
     }
 
     public void PutFurniture()
@@ -38,12 +54,15 @@ public class FurniturePreview : MonoBehaviour
         position.x = cellPos.x;
         position.y = cellPos.y;
 
-        // Si se pudo instanciar, destruimos el preview (capaz desactivar)
-        //Funcionaba mal la grid por ahora castee a un Vectro2Int la posicion actual
-        if(House.instance.currentRoom.roomFurnitures.
-           PlaceFurniture(new Vector2(transform.position.x, transform.position.y), furnitureData)) 
+        bool placeFurniture = House.instance.currentRoom.roomFurnitures.
+               PlaceFurniture(new Vector2(transform.position.x, transform.position.y), furnitureData);
+
+        gameObject.SetActive(!placeFurniture);
+
+        if (placeFurniture)
         {
-            //Destroy(this.gameObject);
+            inventory.furnitureInventory = null;
+            StateManager.SwitchEditMode();
         }
     }
 

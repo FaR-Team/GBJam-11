@@ -2,15 +2,17 @@
 using UnityEngine.InputSystem;
 
 public class MovementController : MonoBehaviour
-{
+{ 
     [SerializeField] protected Transform movePoint;
     [SerializeField] protected float moveSpeed = 5f;
 
     public LayerMask whatStopsMovement;
-    protected PlayerInput playerInput;
-
     public bool IsInEditingMode { get; private set; }
 
+    void Start()
+    {
+        movePoint.parent = null;
+    }
     protected void MoveObject()
     {
         var xInput = Input.GetAxisRaw("Horizontal");
@@ -33,10 +35,5 @@ public class MovementController : MonoBehaviour
 
             movePoint.position += new Vector3(0f, yInput, 0f);
         }
-    }
-
-    void Start()
-    {
-        movePoint.parent = null;
     }
 }

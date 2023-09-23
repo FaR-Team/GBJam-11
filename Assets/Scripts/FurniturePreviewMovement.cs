@@ -6,10 +6,6 @@ public class FurniturePreviewMovement : MovementController
     private float moveCooldown = .2f;
     private float moveCooldownCounter;
 
-    private void Awake()
-    {
-        
-    }
 
     void Update()
     {
@@ -45,7 +41,7 @@ public class FurniturePreviewMovement : MovementController
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && moveCooldownCounter >= 0)
         {
             GetComponent<FurniturePreview>().Rotate();
         }

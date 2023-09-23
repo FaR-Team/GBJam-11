@@ -35,9 +35,9 @@ public class RoomFurnitures : MonoBehaviour
         
         if(!canPlace) return false;
         
-        Vector3 veco = new Vector3(position.x, position.y, 0);
+        Vector3 vector = new Vector3(position.x, position.y, 0);
 
-        Instantiate(furnitureData.prefab, veco, Quaternion.Euler(furnitureData.VectorRotation));
+        Instantiate(furnitureData.prefab, vector, Quaternion.Euler(furnitureData.VectorRotation));
         return true;
 
     }

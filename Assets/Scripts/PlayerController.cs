@@ -3,23 +3,48 @@ using UnityEngine;
 public class PlayerController : MovementController
 {
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject[] furniturePreviews;
+    [SerializeField] private Inventory inventory;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            StateManager.currentGameState = StateManager.currentGameState == GameState.Moving ? GameState.Editing : GameState.Moving;
-            Debug.Log($"Game State: {StateManager.currentGameState.ToString()}");
-        }
-        
+        SwitchEditingMode();
+
         if (StateManager.IsPaused()) return;
         if (StateManager.IsEditing()) return;
-        
+
         Animate();
         MoveObject();
-
-        
     }
+
+    private void SwitchEditingMode()
+    {
+        if (!Input.GetKeyDown(KeyCode.Q)) return;
+
+        FurnitureOriginalData furnitureData = inventory.furnitureInventory;
+
+        if (furnitureData == null) return;
+        
+        StateManager.SwitchEditMode();
+
+        Debug.Log($"Game State: {StateManager.currentGameState}");
+
+
+        foreach (var furniturePreview in furniturePreviews)
+        {
+            if (furniturePreview == furniturePreviews[(int)furnitureData.typeOfSize])
+            {
+                furniturePreview.GetComponent<FurniturePreview>().data = furnitureData;
+                furniturePreview.SetActive(!furniturePreview.activeInHierarchy);
+            }
+            else
+            {
+                furniturePreview.SetActive(false);
+            }
+        }
+    }
+
+
     private void Animate()
     {
         if (transform.position != movePoint.position)
@@ -27,11 +52,7 @@ public class PlayerController : MovementController
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
             anim.SetBool("IsWalking", true);
         }
-        else anim.SetBool("IsWalking", false);
+        else
+            anim.SetBool("IsWalking", false);
     }
-}
-
-public class Inventory : MonoBehaviour
-{
-    [SerializeField] private FurniturePreview furniture;
 }

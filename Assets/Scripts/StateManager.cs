@@ -16,8 +16,9 @@ public class StateManager : MonoBehaviour
     {
         return currentGameState == GameState.Editing;
     }
-    private void Awake()
+
+    public static void SwitchEditMode()
     {
-        //InputPlayerManager._playerInput.
+        currentGameState = currentGameState == GameState.Moving ? GameState.Editing : GameState.Moving;
     }
 }
