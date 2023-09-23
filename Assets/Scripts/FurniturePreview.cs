@@ -32,16 +32,22 @@ public class FurniturePreview : MonoBehaviour
 
     }
 
-    void PutFurniture()
+    public void PutFurniture()
     {
         Vector3Int cellPos = GridManager._grid.WorldToCell(transform.position);
         position.x = cellPos.x;
         position.y = cellPos.y;
 
-        House.currentRoom.roomFurnitures.PlaceFurniture(position, furnitureData); //todavia no tenemos eventos
+        // Si se pudo instanciar, destruimos el preview (capaz desactivar)
+        //Funcionaba mal la grid por ahora castee a un Vectro2Int la posicion actual
+        if(House.instance.currentRoom.roomFurnitures.
+           PlaceFurniture(new Vector2(transform.position.x, transform.position.y), furnitureData)) 
+        {
+            //Destroy(this.gameObject);
+        }
     }
 
-    void Rotate()
+    public void Rotate()
     {
         rotation++;
 

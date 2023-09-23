@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlacementData
 {
-    public List<Vector2Int> occupiedPositions;
+    public List<Vector2> occupiedPositions;
 
     public FurnitureOriginalData furniture;
-    public PlacementData(List<Vector2Int> occupiedPositions, FurnitureOriginalData furniture)
+    public PlacementData(List<Vector2> occupiedPositions, FurnitureOriginalData furniture)
     {
         this.occupiedPositions = occupiedPositions;
         this.furniture = furniture;

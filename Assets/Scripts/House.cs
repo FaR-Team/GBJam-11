@@ -20,7 +20,7 @@ public class House : MonoBehaviour
     
     public Dictionary<Vector3, Room> Habitaciones = new Dictionary<Vector3, Room>();
 
-    public static Room currentRoom;
+    public Room currentRoom;
 
 
     public int roomHeight = 9;
@@ -37,6 +37,7 @@ public class House : MonoBehaviour
         }
 
         _mainCam = Camera.main;
+        
     }
 
     public Room SpawnRoom(Vector3 position)
@@ -111,6 +112,11 @@ public class House : MonoBehaviour
         // Si ya estamos en la habitacion, no mover, pensar mejor forma de hacer que no se interactue con las
         // puertas de la habitacion en la que ya estamos
         if (_mainCam.transform.position == position) return;
+
+        // CAMBIAR DESPUES, NO HARDCODEAR -12 SINO CAPAZ PASAR LA HABITACION POR PARAMETRO Y AHI SACAR LAS POSICIONES
+        Vector3 roomPos = new Vector3(position.x, position.y, -12f);
+        currentRoom = Habitaciones[roomPos]; // Seteamos la habitacion actual al transicionar
+        
         StopAllCoroutines();
         StartCoroutine(MoveCamNextRoom(position, color));
     }

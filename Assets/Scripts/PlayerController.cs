@@ -6,11 +6,19 @@ public class PlayerController : MovementController
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StateManager.currentGameState = StateManager.currentGameState == GameState.Moving ? GameState.Editing : GameState.Moving;
+            Debug.Log($"Game State: {StateManager.currentGameState.ToString()}");
+        }
+        
         if (StateManager.IsPaused()) return;
         if (StateManager.IsEditing()) return;
         
         Animate();
         MoveObject();
+
+        
     }
     private void Animate()
     {

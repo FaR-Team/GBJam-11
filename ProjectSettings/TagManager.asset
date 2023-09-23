@@ -9,12 +9,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PlayerCollide
+  - Walls
   - Water
   - UI
   - GbRender
   - Door
-  - 
+  - Furniture
   - 
   - 
   - 

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1528b305214c9442a65d379425ed5e1, type: 3}
+  m_Script: {fileID: 11500000, guid: e6582f407bbc7b741a5cf2ee76b2b532, type: 3}
   m_Name: Sofa
   m_EditorClassIdentifier: 
-  Id: 0
-  Name: 
-  size: {x: 0, y: 0}
+  Name: Sofa
+  size: {x: 2, y: 1}
+  prefab: {fileID: 5954944119824593527, guid: 88d5892fcfe7aee43958631d0218d1b3, type: 3}
   compatibles: []

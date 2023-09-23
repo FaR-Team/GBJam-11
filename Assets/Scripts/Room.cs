@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
      
     public void Start()
     {
+        roomFurnitures = GetComponent<RoomFurnitures>();
         MainRoom();
     }
 
@@ -20,6 +21,7 @@ public class Room : MonoBehaviour
             return;
         }
         House.instance.Habitaciones.Add(this.transform.position, this);
+        House.instance.currentRoom = this;
         paletteNum = 0;
         cameraVector = new Vector3(transform.position.x, transform.position.y, -3);
     }
