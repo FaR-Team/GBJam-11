@@ -5,6 +5,7 @@ using UnityEngine;
 public class House : MonoBehaviour
 {
     public static House instance;
+
     public GameObject[] roomPrefabs;
     public GameObject[] roomTopPrefabs;
     public GameObject[] roomBottomPrefabs;
@@ -14,8 +15,13 @@ public class House : MonoBehaviour
     public GameObject[] roomTopRightCornerPrefabs;
     public GameObject[] roomBottomLeftCornerPrefabs;
     public GameObject[] roomBottomRightCornerPrefabs;
+    
     public GameObject selectedPrefab;
+    
     public Dictionary<Vector3, Room> Habitaciones = new Dictionary<Vector3, Room>();
+
+    public static Room currentRoom;
+
 
     public int roomHeight = 9;
     public int roomWidth = 10;
@@ -99,6 +105,7 @@ public class House : MonoBehaviour
         else return null;
     }
 
+
     public void TransitionToRoom(Vector3 position, int color)
     {
         // Si ya estamos en la habitacion, no mover, pensar mejor forma de hacer que no se interactue con las
@@ -176,11 +183,5 @@ public class House : MonoBehaviour
             int index = Random.Range(0, roomBottomRightCornerPrefabs.Length);
             selectedPrefab = roomBottomRightCornerPrefabs[index];
         }
-    }
-
-
-    public static Room ActualRoom()
-    {
-        return null;
     }
 }

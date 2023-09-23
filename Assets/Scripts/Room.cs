@@ -6,7 +6,7 @@ public class Room : MonoBehaviour
     public Vector3 cameraVector;
     public bool isMain = false;
     public int paletteNum;
-    //public RoomFurnitures roomFurnitures;
+    public RoomFurnitures roomFurnitures;
      
     public void Start()
     {

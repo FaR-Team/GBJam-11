@@ -84,19 +84,17 @@ public class DoorData : MonoBehaviour
             {
                 NextRoom = House.instance.SpawnRoom(spawnPoint);
                 House.instance.TransitionToRoom(thisRoom.cameraVector, thisRoom.paletteNum);
+                House.currentRoom = NextRoom;
                 isUnlocked = true;
                 UnlockOtherRoomsDoor();
             }
             else if (isUnlocked)
             {
                 NextRoom = House.instance.GetRoom(spawnPoint);
-
                 House.instance.TransitionToRoom(thisRoom.cameraVector, thisRoom.paletteNum);
+                House.currentRoom = NextRoom;
             }
         }
-        else
-        {
-            Debug.Log("NO FUNCIONA");
-        }
+        else Debug.Log("NO FUNCIONA");
     }
 }
