@@ -6,9 +6,7 @@ public class FurniturePreview : MonoBehaviour
 {
     public FurnitureOriginalData data;
 
-    [SerializeField] private InputAction inputMaster;
     [SerializeField] private FurnitureData furnitureData;
-
     [SerializeField] private Inventory inventory;
 
     private Vector2Int originalSize;
