@@ -5277,7 +5277,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d3bf39e9b59b5e4fabbf6c92e9df8ef, type: 2}
   - {fileID: 11400000, guid: 06007ba8f0e85314a803a4c033aa467a, type: 2}
   - {fileID: 11400000, guid: b68bf80269199644997ee63af01065fc, type: 2}
-  - {fileID: 11400000, guid: 1f365f4c7c44b2a4083daf5f419a454d, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
 --- !u!1 &1401255268
