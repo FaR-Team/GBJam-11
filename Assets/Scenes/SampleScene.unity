@@ -7487,7 +7487,7 @@ MonoBehaviour:
   moveSpeed: 5
   whatStopsMovement:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 776
   anim: {fileID: 1881136534}
   furniturePreviews:
   - {fileID: 1828525993}
