@@ -4,7 +4,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public FurnitureOriginalData furnitureInventory;
-    [SerializeField] private GameObject packageUI;
+    public GameObject packageUI;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

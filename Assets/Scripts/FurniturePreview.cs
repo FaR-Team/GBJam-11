@@ -62,6 +62,7 @@ public class FurniturePreview : MonoBehaviour
         if (placeFurniture)
         {
             inventory.furnitureInventory = null;
+            inventory.packageUI.SetActive(false);
             StateManager.SwitchEditMode();
         }
     }
