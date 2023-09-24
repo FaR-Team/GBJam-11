@@ -19,7 +19,7 @@ MonoBehaviour:
   typeOfSize: 1
   compatibles: []
   sprites:
-  - {fileID: -105178077, guid: 7aed0aeb1a0485144ab08f7edd2639e8, type: 3}
-  - {fileID: 1968302764, guid: 7aed0aeb1a0485144ab08f7edd2639e8, type: 3}
-  - {fileID: -438001771, guid: 7aed0aeb1a0485144ab08f7edd2639e8, type: 3}
-  - {fileID: 808814901, guid: 7aed0aeb1a0485144ab08f7edd2639e8, type: 3}
+  - {fileID: 1570763965, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}
+  - {fileID: -396865226, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}
+  - {fileID: 1109003892, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}
+  - {fileID: 908913364, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}

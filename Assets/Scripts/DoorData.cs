@@ -102,6 +102,7 @@ public class DoorData : MonoBehaviour
         {
             PlayerController.instance.Inventory.UpdateMoney(-House.instance.DoorPrice);
             NextRoom = House.instance.SpawnRoom(spawnPoint);
+            AudioManager.instance.PlaySfx(GlobalSfx.Grab);
             UnlockDoor();
             UnlockOtherRoomsDoor();
         }

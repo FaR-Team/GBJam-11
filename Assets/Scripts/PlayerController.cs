@@ -80,7 +80,6 @@ public class PlayerController : MovementController
         {
             costText.text = House.instance.DoorPrice.ToString();
             costCanvas.SetActive(true);
-            Debug.Log("Mirando puerta");
             // House.instance.DoorPrice
         }
         else
