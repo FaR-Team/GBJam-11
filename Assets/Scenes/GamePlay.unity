@@ -6063,6 +6063,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f71f7576661388c4b85a945dd604eb79, type: 2}
   - {fileID: 11400000, guid: 437b9b39befc2f04d83137251475e08e, type: 2}
   - {fileID: 11400000, guid: b1f88e81bca4a5b4a9c426a54864532f, type: 2}
+  - {fileID: 11400000, guid: 8c75c6b256f73804a97aaca7735993a7, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
 --- !u!1 &1401255268
@@ -6943,7 +6944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726686895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8031,7 +8032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951684742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
