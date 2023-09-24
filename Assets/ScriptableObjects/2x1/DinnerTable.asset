@@ -17,7 +17,8 @@ MonoBehaviour:
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 3bb30eaf4d21ae049a3a2770c70e3377, type: 3}
   typeOfSize: 3
-  compatibles: []
+  compatibles:
+  - {fileID: 11400000, guid: b8f51ccc092acd04cbaa2314f8633258, type: 2}
   sprites:
   - {fileID: -1030993009, guid: 3fcecbf5f336efc4294f7888d75f4093, type: 3}
   - {fileID: -1119942959, guid: 3fcecbf5f336efc4294f7888d75f4093, type: 3}
