@@ -53,12 +53,15 @@ public class RoomFurnitures : MonoBehaviour
         if(!placeOnTop) 
         {
             PlayerController.instance.Inventory.UpdateMoney(data.price);
+            House.instance.UpdateScore(data.price);
             positionToOccupy.ForEach(pos => PlacementDatasInPosition[pos].instantiatedFurniture = furniturePrefab);
         }
         else
         {
+            // Si el objeto va encima de otro, lo guardamos en el PlacementData y damos doble score por combo
             PlayerController.instance.Inventory.UpdateMoney(data.price * 2);
-            // Si el objeto va encima de otro, lo guardamos en el PlacementData
+            House.instance.UpdateScore(data.price * 2);
+            
             positionToOccupy.ForEach(pos =>
             {
                 PlacementDatasInPosition[pos].instantiatedFurnitureOnTop = furniturePrefab;

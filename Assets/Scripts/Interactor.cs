@@ -22,6 +22,7 @@ public class Interactor : MonoBehaviour
                 Destroy(placementData.instantiatedFurniture);
                 House.instance.currentRoom.roomFurnitures.RemoveDataInPositions(placementData.occupiedPositions);
                 PlayerController.instance.Inventory.UpdateMoney(-placementData.furniture.price);
+                House.instance.UpdateScore(-placementData.furniture.price);
 
             }
             else
@@ -31,6 +32,7 @@ public class Interactor : MonoBehaviour
                 Destroy(placementData.instantiatedFurnitureOnTop);
                 House.instance.currentRoom.roomFurnitures.RemoveTopObjectInPositions(placementData.occupiedPositions);
                 PlayerController.instance.Inventory.UpdateMoney(-placementData.furniture.price * 2);
+                House.instance.UpdateScore(-placementData.furniture.price * 2);
             }
 
             AudioManager.instance.PlaySfx(GlobalSfx.Grab);

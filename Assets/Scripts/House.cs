@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class House : MonoBehaviour
 {
@@ -25,10 +26,12 @@ public class House : MonoBehaviour
 
     private int availableSpaces;
     private int doorPrice = 100;
+    private int score = 0;
 
     public int roomHeight = 9;
     public int roomWidth = 10;
     public int DoorPrice => doorPrice;
+    public int Score => score;
 
     [SerializeField] private float roomTransitionTime = .3f;
     private Camera _mainCam;
@@ -42,12 +45,15 @@ public class House : MonoBehaviour
 
         _mainCam = Camera.main;
         doorPrice = 100;
+        score = 0;
     }
 
     public Room SpawnRoom(Vector3 position)
     {
         if (!Habitaciones.TryGetValue(position, out Room room))
         {
+            // Agregamos el score antes de aumentarlo
+            UpdateScore(doorPrice);
             doorPrice += 100;
             int x = (int)position.x / roomWidth;
             int y = (int)position.y / roomHeight;
@@ -60,6 +66,11 @@ public class House : MonoBehaviour
             return _room;
         }
         else return GetRoom(position);
+    }
+
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
     }
 
     public void WhichRoomToSpawnPos(int x, int y)
