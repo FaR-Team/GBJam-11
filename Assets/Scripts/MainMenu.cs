@@ -23,8 +23,10 @@ public class MainMenu : MonoBehaviour
 
                 case 1:
                     ActivateControllerScreen(true);
+                    AudioManager.instance.PlaySfx(GlobalSfx.Click);
                     break;
                 default:
+                    AudioManager.instance.PlaySfx(GlobalSfx.Grab);
                     blackFade.SetTrigger("StartBlackFade");
                     Invoke("LoadGame", 1.5f);
                     IsAlreadyChangingScene = true;

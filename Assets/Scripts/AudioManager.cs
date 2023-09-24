@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioClip clickOkClip;
     [SerializeField] private AudioClip errorClip;
+    [SerializeField] private AudioClip grabClip;
 
     private Dictionary<GlobalSfx, AudioClip> _clipsDictionary = new Dictionary<GlobalSfx, AudioClip>();
     
@@ -22,6 +23,7 @@ public class AudioManager : MonoBehaviour
     {
         _clipsDictionary[GlobalSfx.Click] = clickOkClip;
         _clipsDictionary[GlobalSfx.Error] = errorClip;
+        _clipsDictionary[GlobalSfx.Grab] = grabClip;
     }
 
     public void PlaySfx(AudioClip clip)
@@ -31,6 +33,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySfx(GlobalSfx clipKey)
     {
+        sfxAudioSource.pitch = 1f;
+        _clipsDictionary.TryGetValue(clipKey, out AudioClip clip);
+        sfxAudioSource.PlayOneShot(clip);
+    }
+
+    public void PlaySfxWithPitch(GlobalSfx clipKey, float pitch)
+    {
+        sfxAudioSource.pitch = pitch;
         _clipsDictionary.TryGetValue(clipKey, out AudioClip clip);
         sfxAudioSource.PlayOneShot(clip);
     }
@@ -51,5 +61,6 @@ public class AudioManager : MonoBehaviour
 public enum GlobalSfx
 {
     Click,
-    Error
+    Error,
+    Grab
 }

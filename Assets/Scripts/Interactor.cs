@@ -33,6 +33,8 @@ public class Interactor : MonoBehaviour
                 PlayerController.instance.Inventory.UpdateMoney(-placementData.furniture.price * 2);
             }
 
+            AudioManager.instance.PlaySfx(GlobalSfx.Grab);
+
             return;
         }
 

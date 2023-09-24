@@ -43,10 +43,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -306,3 +306,4 @@ MonoBehaviour:
   musicAudioSource: {fileID: 4342737202206940843}
   clickOkClip: {fileID: 8300000, guid: 113bfe07f3b1f184380fbaca3d2f3b80, type: 3}
   errorClip: {fileID: 8300000, guid: 09dbd978f5915b04d98f319b71ad075d, type: 3}
+  grabClip: {fileID: 8300000, guid: 196605b6950721a41b93780fb013badf, type: 3}

@@ -60,9 +60,14 @@ public class FurniturePreview : MonoBehaviour
 
         if (placeFurniture)
         {
+            AudioManager.instance.PlaySfx(GlobalSfx.Click);
             inventory.furnitureInventory = null;
             inventory.packageUI.SetActive(false);
             StateManager.SwitchEditMode();
+        }
+        else
+        {
+            AudioManager.instance.PlaySfx(GlobalSfx.Error);
         }
     }
 
