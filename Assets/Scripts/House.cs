@@ -17,7 +17,7 @@ public class House : MonoBehaviour
     public GameObject[] roomBottomRightCornerPrefabs;
     
     public GameObject selectedPrefab;
-    
+    [SerializeField] private GameObject houseParent;
     public Dictionary<Vector3, Room> Habitaciones = new Dictionary<Vector3, Room>();
 
     public Room currentRoom;
@@ -48,8 +48,8 @@ public class House : MonoBehaviour
         {
             int x = (int)position.x / roomWidth;
             int y = (int)position.y / roomHeight;
-            WichRoomToSpawnPos(x, y);
-            Room _room = Instantiate(selectedPrefab, position, Quaternion.identity).GetComponent<Room>();
+            WhichRoomToSpawnPos(x, y);
+            Room _room = Instantiate(selectedPrefab, position, Quaternion.identity , houseParent.transform).GetComponent<Room>();
             _room.Init();
             Habitaciones.Add(position, _room);
             _room.cameraVector = new Vector3(position.x, position.y, -3);
@@ -58,7 +58,7 @@ public class House : MonoBehaviour
         else return GetRoom(position);
     }
 
-    public void WichRoomToSpawnPos(int x, int y)
+    public void WhichRoomToSpawnPos(int x, int y)
     {
         if (x == -7 && y == 0)
         {
