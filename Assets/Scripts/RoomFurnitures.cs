@@ -35,8 +35,9 @@ public class RoomFurnitures : MonoBehaviour
                 canPlace = positionToOccupy.Intersect(PlacementDatasInPosition[pos].occupiedPositions).Count() ==
                            positionToOccupy.Count() 
                            && PlacementDatasInPosition[pos].furniture.compatibles.Contains(data)
-                           && PlacementDatasInPosition[pos].instantiatedFurnitureOnTop == null;
-                
+                           && PlacementDatasInPosition[pos].occupiedPositions.All(occupied => PlacementDatasInPosition[occupied].instantiatedFurnitureOnTop == null);
+                            // Si queremos que se puedan poner varios encima de algo compatible, capaz al remover chequear si hay varias datas y con cual es compatible
+
                 placeOnTop = canPlace;
                 
                 break;
