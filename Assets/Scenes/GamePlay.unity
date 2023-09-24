@@ -5759,6 +5759,7 @@ MonoBehaviour:
   - {fileID: 86127850}
   - {fileID: 946488103}
   - {fileID: 1344729819}
+  myScores: {fileID: 0}
 --- !u!1 &1344729817
 GameObject:
   m_ObjectHideFlags: 0
@@ -5997,6 +5998,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26f88ca0e03f661429a33bfcbff0ff4a, type: 2}
   - {fileID: 11400000, guid: 4ea978be7a2118a4b98219ba08fc9a17, type: 2}
   - {fileID: 11400000, guid: 5ef2e2c77af1e7d478780c49e1c6965f, type: 2}
+  - {fileID: 11400000, guid: b8f51ccc092acd04cbaa2314f8633258, type: 2}
+  - {fileID: 11400000, guid: 5540817b85aa1cd40aa62cdcd2dc2ddf, type: 2}
+  - {fileID: 11400000, guid: f4602c119eb26e646acebd1e2d36b89e, type: 2}
+  - {fileID: 11400000, guid: 32ee4c8263b5c7b48a1b3ee85689710f, type: 2}
+  - {fileID: 11400000, guid: 3abd00303a3b14c45a858e84b99533da, type: 2}
+  - {fileID: 11400000, guid: 8881a405225e9cb4b81f24442428edda, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
 --- !u!1 &1401255268
