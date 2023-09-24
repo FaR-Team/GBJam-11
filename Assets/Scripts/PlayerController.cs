@@ -47,7 +47,7 @@ public class PlayerController : MovementController
         
         StateManager.SwitchEditMode();
 
-        Debug.Log($"Game State: {StateManager.currentGameState}");
+        //Debug.Log($"Game State: {StateManager.currentGameState}");
 
 
         foreach (var furniturePreview in furniturePreviews)

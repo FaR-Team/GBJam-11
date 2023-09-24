@@ -12,8 +12,6 @@ public class MainMenu : MonoBehaviour
     bool IsAlreadyChangingScene;
     void Update()
     {
-        print(value);
-
         if (Input.anyKeyDown && !IsAlreadyChangingScene)
         {
             value++;
