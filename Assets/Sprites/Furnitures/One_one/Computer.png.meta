@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29b952655693cc84899d379450735635
+guid: cb1cadfad9087f04f933284a297080b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,11 +113,35 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Oven_0
+      name: Computer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5385b39c8fbf5fd45845faec2a896fa8
-      internalID: 1788588754
+      spriteID: 30728975b78798d42bfc2a4f67b3dd35
+      internalID: 1618629488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oven_1
+      name: Computer_1
       rect:
         serializedVersion: 2
         x: 16
@@ -152,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a34f0c52372ff43bfb17afc186ba98
-      internalID: -253885770
+      spriteID: e08950e36ab371343bc5eedb4d6b17a9
+      internalID: 1523739987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oven_2
+      name: Computer_2
       rect:
         serializedVersion: 2
         x: 0
@@ -173,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15dd42850de345d45973e4fc7fd3d76d
-      internalID: -1331989701
+      spriteID: d7d938ca5ff4f3e4dad147f479772285
+      internalID: 645668682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oven_3
+      name: Computer_3
       rect:
         serializedVersion: 2
         x: 16
@@ -194,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573941f51c63cca42bf2b42554374191
-      internalID: 926039071
+      spriteID: 40b39aa7740531d4cb93e02012657560
+      internalID: 1288702030
       vertices: []
       indices: 
       edges: []
@@ -211,10 +235,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Oven_1: -253885770
-      Oven_3: 926039071
-      Oven_0: 1788588754
-      Oven_2: -1331989701
+      Computer_1: 1523739987
+      Computer_2: 645668682
+      Computer_3: 1288702030
+      Computer_0: 1618629488
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

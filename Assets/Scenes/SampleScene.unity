@@ -5505,6 +5505,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b68bf80269199644997ee63af01065fc, type: 2}
   - {fileID: 11400000, guid: 8bbba5d474c328e4cab8bc0fbfda48c9, type: 2}
   - {fileID: 11400000, guid: d855ff8ad25f01648a230203164f991c, type: 2}
+  - {fileID: 11400000, guid: 363c852e6adb247498122106dd1e13ca, type: 2}
+  - {fileID: 11400000, guid: 130f9903c113749488c7a1107aa58724, type: 2}
+  - {fileID: 11400000, guid: b615917cd46df4240a350ffde8f65a7e, type: 2}
+  - {fileID: 11400000, guid: 8ed8129655737fd47917c8e3eced4d6e, type: 2}
+  - {fileID: 11400000, guid: f71f7576661388c4b85a945dd604eb79, type: 2}
+  - {fileID: 11400000, guid: 437b9b39befc2f04d83137251475e08e, type: 2}
+  - {fileID: 11400000, guid: b1f88e81bca4a5b4a9c426a54864532f, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
 --- !u!1 &1401255268
