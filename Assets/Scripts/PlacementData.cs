@@ -7,6 +7,10 @@ public class PlacementData
     public List<Vector2> occupiedPositions;
 
     public FurnitureOriginalData furniture;
+    public FurnitureOriginalData furnitureOnTop;
+
+    public GameObject instantiatedFurniture;
+    public GameObject instantiatedFurnitureOnTop;
     public PlacementData(List<Vector2> occupiedPositions, FurnitureOriginalData furniture)
     {
         this.occupiedPositions = occupiedPositions;

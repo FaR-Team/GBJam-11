@@ -5,6 +5,7 @@ public class PlayerController : MovementController
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject[] furniturePreviews;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Interactor interactor;
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class PlayerController : MovementController
 
         Animate();
         MoveObject();
+        CheckInteract();
     }
 
     private void SwitchEditingMode()
@@ -41,6 +43,14 @@ public class PlayerController : MovementController
             {
                 furniturePreview.SetActive(false);
             }
+        }
+    }
+
+    private void CheckInteract()
+    {
+        if(Input.GetMouseButtonDown(0) && !IsMoving)
+        {
+            interactor.Interact(inventory);
         }
     }
 

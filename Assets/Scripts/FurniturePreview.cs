@@ -31,6 +31,7 @@ public class FurniturePreview : MonoBehaviour
     private void OnEnable()
     {
         SetFurnitureData();
+        CheckRotation();
 
         var playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
@@ -71,7 +72,12 @@ public class FurniturePreview : MonoBehaviour
 
         if (rotation >= 4)
             rotation = 0;
+        
+        CheckRotation();
+    }
 
+    void CheckRotation()
+    {
         switch (rotation)
         {
             case 0:

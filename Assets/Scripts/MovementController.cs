@@ -8,6 +8,7 @@ public class MovementController : MonoBehaviour
 
     public LayerMask whatStopsMovement;
     public bool IsInEditingMode { get; private set; }
+    public bool IsMoving => transform.position != movePoint.position;
 
     void Start()
     {

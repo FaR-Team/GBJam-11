@@ -23,6 +23,8 @@ public class House : MonoBehaviour
     public Room currentRoom;
 
 
+    private int availableSpaces;
+    
     public int roomHeight = 9;
     public int roomWidth = 10;
 

@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 66243694}
   - component: {fileID: 66243693}
   - component: {fileID: 66243692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorLeft
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   moveSpeed: 5
   whatStopsMovement:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!114 &194237384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,15 +1038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  inputMaster:
-    m_Name: Input Master
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f3d6e8a3-6c3c-4a0a-99f3-2fddff1610f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   inventory: {fileID: 2043652587}
 --- !u!114 &194237385
 MonoBehaviour:
@@ -1725,6 +1716,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423628447}
   m_CullTransparentMesh: 1
+--- !u!1 &435245289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435245290}
+  - component: {fileID: 435245291}
+  m_Layer: 0
+  m_Name: Interactor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435245290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435245289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2043652583}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435245291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435245289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914e7c098387b864397691a93f10d0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &461239424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,7 +2318,7 @@ MonoBehaviour:
   moveSpeed: 5
   whatStopsMovement:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!114 &664401296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,15 +2332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  inputMaster:
-    m_Name: Input Master
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f3d6e8a3-6c3c-4a0a-99f3-2fddff1610f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   inventory: {fileID: 2043652587}
 --- !u!4 &664401297
 Transform:
@@ -3071,7 +3100,7 @@ MonoBehaviour:
   moveSpeed: 5
   whatStopsMovement:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!114 &871330504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3085,15 +3114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  inputMaster:
-    m_Name: Input Master
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f3d6e8a3-6c3c-4a0a-99f3-2fddff1610f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   inventory: {fileID: 2043652587}
 --- !u!4 &871330505
 Transform:
@@ -3576,7 +3596,7 @@ GameObject:
   - component: {fileID: 996624853}
   - component: {fileID: 996624852}
   - component: {fileID: 996624851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorRight
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -3772,7 +3792,7 @@ GameObject:
   - component: {fileID: 1018590025}
   - component: {fileID: 1018590026}
   - component: {fileID: 1018590027}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorBottom
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -5303,13 +5323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleFurnitures:
-  - {fileID: 11400000, guid: d855ff8ad25f01648a230203164f991c, type: 2}
   - {fileID: 11400000, guid: 6e00cf28cf6b3724892f7167e0e46a54, type: 2}
-  - {fileID: 11400000, guid: 281e116e849262b4c9c6e7a82a4f5aab, type: 2}
-  - {fileID: 11400000, guid: 5d3bf39e9b59b5e4fabbf6c92e9df8ef, type: 2}
-  - {fileID: 11400000, guid: 06007ba8f0e85314a803a4c033aa467a, type: 2}
-  - {fileID: 11400000, guid: b68bf80269199644997ee63af01065fc, type: 2}
-  - {fileID: 11400000, guid: 8bbba5d474c328e4cab8bc0fbfda48c9, type: 2}
+  - {fileID: 11400000, guid: b0169168ff310264292d9af4de8dbe59, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
 --- !u!1 &1401255268
@@ -5594,7 +5609,7 @@ MonoBehaviour:
   moveSpeed: 5
   whatStopsMovement:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!114 &1521791841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5608,15 +5623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  inputMaster:
-    m_Name: Input Master
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f3d6e8a3-6c3c-4a0a-99f3-2fddff1610f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   inventory: {fileID: 2043652587}
 --- !u!4 &1521791842
 Transform:
@@ -6544,7 +6550,7 @@ MonoBehaviour:
   moveSpeed: 5
   whatStopsMovement:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!114 &1828525995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6558,15 +6564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  inputMaster:
-    m_Name: Input Master
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f3d6e8a3-6c3c-4a0a-99f3-2fddff1610f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   inventory: {fileID: 2043652587}
 --- !u!4 &1828525996
 Transform:
@@ -7530,6 +7527,7 @@ Transform:
   m_Children:
   - {fileID: 1145737935}
   - {fileID: 1881136532}
+  - {fileID: 435245290}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7558,6 +7556,7 @@ MonoBehaviour:
   - {fileID: 194237381}
   - {fileID: 871330502}
   inventory: {fileID: 2043652587}
+  interactor: {fileID: 435245291}
 --- !u!50 &2043652585
 Rigidbody2D:
   serializedVersion: 4

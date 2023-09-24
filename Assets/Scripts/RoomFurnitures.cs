@@ -15,6 +15,7 @@ public class RoomFurnitures : MonoBehaviour
         List<Vector2> positionToOccupy = CalculatePositions(position, furnitureData.size);
 
         bool canPlace = !positionToOccupy.Any(x => PlacementDatasInPosition.ContainsKey(x) || Physics2D.OverlapCircle(x, 0.2f));
+        bool placeOnTop = false;
 
         if (canPlace)
         {
@@ -28,8 +29,17 @@ public class RoomFurnitures : MonoBehaviour
             // Mejorar esta parte, capaz fijarnos si es compatible arriba dentro del Any() y aca retornar
             foreach (var pos in positionToOccupy)
             {
-                if(!PlacementDatasInPosition.ContainsKey(pos)) continue;
-                canPlace = PlacementDatasInPosition[pos].furniture.compatibles.Contains(data);
+                if(!PlacementDatasInPosition.ContainsKey(pos)) break;
+
+                // Se fija si todas las posiciones que va a ocupar el objeto estan dentro de las posiciones que ocupa el objeto debajo, si es compatible y si no hay ya algo encima
+                canPlace = positionToOccupy.Intersect(PlacementDatasInPosition[pos].occupiedPositions).Count() ==
+                           positionToOccupy.Count() 
+                           && PlacementDatasInPosition[pos].furniture.compatibles.Contains(data)
+                           && PlacementDatasInPosition[pos].instantiatedFurnitureOnTop == null;
+                
+                placeOnTop = canPlace;
+                
+                break;
             }
         }
         
@@ -37,9 +47,21 @@ public class RoomFurnitures : MonoBehaviour
         
         Vector3 vector = new Vector3(position.x, position.y, 0);
 
-        Instantiate(furnitureData.prefab, vector, Quaternion.Euler(furnitureData.VectorRotation));
+        // Guardamos el objeto que instanciamos en en cada PlacementData
+        GameObject furniturePrefab = Instantiate(furnitureData.prefab, vector, Quaternion.Euler(furnitureData.VectorRotation));
+        
+        if(!placeOnTop) positionToOccupy.ForEach(pos => PlacementDatasInPosition[pos].instantiatedFurniture = furniturePrefab);
+        else
+        {
+            // Si el objeto va encima de otro, lo guardamos en el PlacementData
+            positionToOccupy.ForEach(pos =>
+            {
+                PlacementDatasInPosition[pos].instantiatedFurnitureOnTop = furniturePrefab;
+                PlacementDatasInPosition[pos].furnitureOnTop = data;
+            });
+        }
+        
         return true;
-
     }
 
     private List<Vector2> CalculatePositions(Vector2 position, Vector2Int size)
@@ -54,5 +76,22 @@ public class RoomFurnitures : MonoBehaviour
             }
         }
         return returnVal;
+    }
+
+    public void RemoveDataInPositions(List<Vector2> positions)
+    {
+        foreach (var pos in positions)
+        {
+            PlacementDatasInPosition.Remove(pos);
+        }
+    }
+
+    public void RemoveTopObjectInPositions(List<Vector2> positions)
+    {
+        foreach (var pos in positions)
+        {
+            PlacementDatasInPosition[pos].furnitureOnTop = null;
+            //PlacementDatasInPosition[pos].instantiatedFurnitureOnTop = null;
+        }
     }
 }

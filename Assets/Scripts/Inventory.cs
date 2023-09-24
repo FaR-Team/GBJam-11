@@ -14,8 +14,13 @@ public class Inventory : MonoBehaviour
 
         furnitureInventory = Package._furnitureInPackage;
         Package.package.SetActive(false);
-        packageUI.SetActive(true);
+        EnablePackageUI(true);
         
         Debug.Log("inventario asignado");
+    }
+
+    public void EnablePackageUI(bool enabled)
+    {
+        packageUI.SetActive(enabled);
     }
 }
