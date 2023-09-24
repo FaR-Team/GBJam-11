@@ -22,6 +22,8 @@ public class DoorData : MonoBehaviour
     private Transform roomPosition;
     private Vector3 roomCameraPosition;
 
+    [SerializeField] private Sprite openDoor;
+
     void Start()
     {
         
@@ -107,9 +109,10 @@ public class DoorData : MonoBehaviour
     public void UnlockDoor()
     {
         isUnlocked = true;
-        
+
         // Al desbloquear, hacemos el collider un trigger, y que la layer sea de puerta desbloqueada
         GetComponent<Collider2D>().isTrigger = true;
+        GetComponent<SpriteRenderer>().sprite = openDoor;
         gameObject.layer = 7;
     }
 
@@ -135,13 +138,13 @@ public class DoorData : MonoBehaviour
             default: checkPos = Vector2.zero;
                 break;
         } 
-        Debug.Log("Check pos: " + checkPos);
+        //Debug.Log("Check pos: " + checkPos);
         
         var door = Physics2D.OverlapCircle(checkPos, 0.2f, 1 << 10);
         // Si al instanciar esta puerta existe una al lado, desbloqueamos ambas
         if (door)
         {
-            Debug.Log("Hay puerta en " + door.transform.position);
+            //Debug.Log("Hay puerta en " + door.transform.position);
             door.TryGetComponent(out DoorData doorData);
 
             if (doorData)
