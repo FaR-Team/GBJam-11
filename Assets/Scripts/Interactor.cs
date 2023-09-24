@@ -7,7 +7,6 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask doorLayer;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -18,8 +17,7 @@ public class Interactor : MonoBehaviour
 
     public void Interact(Inventory playerInventory)
     {
-        var cell = GridManager._grid.WorldToCell(transform.position);
-        var gridPosition = GridManager._grid.GetCellCenterWorld(cell);
+        var gridPosition = GridManager.PositionToCellCenter(transform.position);
         // Si existe un PlacementData en el punto de interaccion, 
         if (House.instance.currentRoom.roomFurnitures.PlacementDatasInPosition.TryGetValue(gridPosition, out PlacementData placementData))
         {
@@ -48,13 +46,17 @@ public class Interactor : MonoBehaviour
             
             return;
         }
+        else Debug.Log("no hay placement data en: " + (Vector2) gridPosition);
         
         // Si no hay PlacementData, chequear si hay una puerta
         var door = Physics2D.OverlapCircle(transform.position, 0.2f, doorLayer);
+        
         if (door)
         {
             // Desbloquear habitacion si hay guita
-            Debug.Log("Interacted with door");
+            door.TryGetComponent(out DoorData doorData);
+            
+            if(doorData) doorData.BuyNextRoom();
         }
     }
 }

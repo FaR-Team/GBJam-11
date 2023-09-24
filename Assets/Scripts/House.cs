@@ -24,6 +24,7 @@ public class House : MonoBehaviour
 
 
     private int availableSpaces;
+    private int doorPrice;
     
     public int roomHeight = 9;
     public int roomWidth = 10;
@@ -53,6 +54,9 @@ public class House : MonoBehaviour
             _room.Init();
             Habitaciones.Add(position, _room);
             _room.cameraVector = new Vector3(position.x, position.y, -3);
+
+            doorPrice++;
+            
             return _room;
         }
         else return GetRoom(position);

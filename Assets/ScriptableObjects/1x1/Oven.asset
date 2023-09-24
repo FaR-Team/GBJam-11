@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Oven
   m_EditorClassIdentifier: 
   Name: Oven
-  size: {x: 0, y: 0}
+  size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: a2728f189d68dd9419fcab83ed824102, type: 3}
   typeOfSize: 0
   compatibles: []

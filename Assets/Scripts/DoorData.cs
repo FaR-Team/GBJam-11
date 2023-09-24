@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DoorData : MonoBehaviour
@@ -23,7 +24,7 @@ public class DoorData : MonoBehaviour
 
     void Start()
     {
-        gameObject.layer = 7;
+        
         roomPosition = transform.parent;
         thisRoom = transform.parent.GetComponent<Room>();
 
@@ -62,17 +63,21 @@ public class DoorData : MonoBehaviour
         switch (doorType)
         {
             case DoorType.Top:
-                NextRoom.doors[1].isUnlocked = true;
+                NextRoom.doors.First(x => x.doorType == DoorType.Bottom)?.UnlockDoor();
+                //NextRoom.doors[1].UnlockDoor();
                 break;
             case DoorType.Bottom:
                 if (NextRoom.isMain) return;
-                NextRoom.doors[0].isUnlocked = true;
+                NextRoom.doors.First(x => x.doorType == DoorType.Top)?.UnlockDoor();
+               // NextRoom.doors[0].UnlockDoor();
                 break;
             case DoorType.Left:
-                NextRoom.doors[3].isUnlocked = true;
+                NextRoom.doors.First(x => x.doorType == DoorType.Right)?.UnlockDoor();
+                //NextRoom.doors[3].UnlockDoor();
                 break;
             case DoorType.Right:
-                NextRoom.doors[2].isUnlocked = true;
+                NextRoom.doors.First(x => x.doorType == DoorType.Left)?.UnlockDoor();
+                //NextRoom.doors[2].UnlockDoor();
                 break;
         }
     }
@@ -81,21 +86,72 @@ public class DoorData : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!isUnlocked)
+            if (isUnlocked && House.instance.currentRoom != thisRoom)
             {
-                NextRoom = House.instance.SpawnRoom(spawnPoint);
                 House.instance.TransitionToRoom(thisRoom.cameraVector, thisRoom.paletteNum);
-                //House.instance.currentRoom = NextRoom;
-                isUnlocked = true;
-                UnlockOtherRoomsDoor();
-            }
-            else if (isUnlocked)
-            {
-                NextRoom = House.instance.GetRoom(spawnPoint);
-                House.instance.TransitionToRoom(thisRoom.cameraVector, thisRoom.paletteNum);
-               // House.instance.currentRoom = NextRoom;
             }
         }
         else Debug.Log("NO FUNCIONA");
+    }
+
+    public void BuyNextRoom()
+    {
+        if (!isUnlocked)
+        {
+            NextRoom = House.instance.SpawnRoom(spawnPoint);
+            UnlockDoor();
+            UnlockOtherRoomsDoor();
+        }
+    }
+
+    public void UnlockDoor()
+    {
+        isUnlocked = true;
+        
+        // Al desbloquear, hacemos el collider un trigger, y que la layer sea de puerta desbloqueada
+        GetComponent<Collider2D>().isTrigger = true;
+        gameObject.layer = 7;
+    }
+
+    public void CheckNextDoor()
+    {
+        if (isUnlocked) return;
+
+        Vector2 checkPos;
+        switch (doorType)
+        {
+            case DoorType.Top:
+                checkPos = transform.position + Vector3.up;
+                break;
+            case DoorType.Bottom:
+                checkPos = transform.position - Vector3.up;
+                break;
+            case DoorType.Left:
+                checkPos = transform.position - Vector3.right;
+                break;
+            case DoorType.Right:
+                checkPos = transform.position + Vector3.right;
+                break;
+            default: checkPos = Vector2.zero;
+                break;
+        } 
+        Debug.Log("Check pos: " + checkPos);
+        
+        var door = Physics2D.OverlapCircle(checkPos, 0.2f, 1 << 10);
+        // Si al instanciar esta puerta existe una al lado, desbloqueamos ambas
+        if (door)
+        {
+            Debug.Log("Hay puerta en " + door.transform.position);
+            door.TryGetComponent(out DoorData doorData);
+
+            if (doorData)
+            {
+                NextRoom = doorData.thisRoom;
+                doorData.NextRoom = thisRoom;
+                UnlockDoor();
+                doorData.UnlockDoor();
+            }
+        }
+        
     }
 }

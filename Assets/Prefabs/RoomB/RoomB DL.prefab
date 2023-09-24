@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 5748501361348794206}
   - component: {fileID: 5748501361348794207}
   - component: {fileID: 5748501361348794200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorRight
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -568,8 +568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors:
   - {fileID: 5748501363029740194}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 5748501361348794207}
   cameraVector: {x: 0, y: 0, z: 0}
   isMain: 0
@@ -599,7 +597,7 @@ GameObject:
   - component: {fileID: 5748501363029740193}
   - component: {fileID: 5748501363029740194}
   - component: {fileID: 5748501363029740192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorTop
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -698,7 +696,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

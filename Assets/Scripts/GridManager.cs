@@ -11,4 +11,10 @@ public class GridManager : MonoBehaviour
     {
         instance = this;
     }
+
+    public static Vector2 PositionToCellCenter(Vector2 pos)
+    {
+        var cell = _grid.WorldToCell(pos);
+        return _grid.GetCellCenterWorld(cell);
+    }
 }

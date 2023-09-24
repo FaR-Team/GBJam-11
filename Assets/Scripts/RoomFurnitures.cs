@@ -45,10 +45,10 @@ public class RoomFurnitures : MonoBehaviour
         
         if(!canPlace) return false;
         
-        Vector3 vector = new Vector3(position.x, position.y, 0);
+        var finalPos = GridManager.PositionToCellCenter(position);
 
         // Guardamos el objeto que instanciamos en en cada PlacementData
-        GameObject furniturePrefab = Instantiate(furnitureData.prefab, vector, Quaternion.Euler(furnitureData.VectorRotation));
+        GameObject furniturePrefab = Instantiate(furnitureData.prefab, finalPos, Quaternion.Euler(furnitureData.VectorRotation));
         
         if(!placeOnTop) positionToOccupy.ForEach(pos => PlacementDatasInPosition[pos].instantiatedFurniture = furniturePrefab);
         else
@@ -72,7 +72,8 @@ public class RoomFurnitures : MonoBehaviour
             for (int y = 0; y < Mathf.Abs(size.y); y++)
             {
                 // Multiplicamos por el signo para que sepa si el size es negativo o positivo
-                returnVal.Add(position + new Vector2(x * Mathf.Sign(size.x), y * Mathf.Sign(size.y)));
+                var newPosition = position + new Vector2(x * Mathf.Sign(size.x), y * Mathf.Sign(size.y));
+                returnVal.Add(GridManager.PositionToCellCenter(newPosition));
             }
         }
         return returnVal;

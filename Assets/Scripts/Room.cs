@@ -30,5 +30,14 @@ public class Room : MonoBehaviour
     {
         paletteNum = Random.Range(0, ColourChanger.instance.colorPalettes.Length);
         cameraVector = new Vector3(transform.position.x, transform.position.y, -3);
+        UpdateAdjacentRoomsDoors();
+    }
+
+    public void UpdateAdjacentRoomsDoors()
+    {
+        for (int i = 0; i < doors.Length; i++)
+        {
+            doors[i].CheckNextDoor();
+        }
     }
 }
