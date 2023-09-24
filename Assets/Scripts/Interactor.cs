@@ -43,6 +43,10 @@ public class Interactor : MonoBehaviour
         // Desbloquear habitacion si hay guita
         door.TryGetComponent(out DoorData doorData);
 
-        if (doorData) doorData.BuyNextRoom();
+        if (doorData)
+        {
+            doorData.BuyNextRoom();
+            PlayerController.instance.CheckInFront();
+        }
     }
 }

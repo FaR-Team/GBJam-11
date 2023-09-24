@@ -25,17 +25,22 @@ public class MovementController : MonoBehaviour
 
         if (Mathf.Abs(xInput) == 1f)
         {
-            transform.up = Vector2.right * xInput;
+            Rotate(Vector2.right * xInput);
             if (Physics2D.OverlapCircle(movePoint.position + new Vector3(xInput, 0f, 0f), .1f, whatStopsMovement)) return;
 
             movePoint.position += new Vector3(xInput, 0f, 0f);
         }
         else if (Mathf.Abs(yInput) == 1f)
         {
-            transform.up = Vector2.up * yInput;
+            Rotate(Vector2.up * yInput);
             if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, yInput, 0f), .1f, whatStopsMovement)) return;
 
             movePoint.position += new Vector3(0f, yInput, 0f);
         }
+    }
+
+    protected virtual void Rotate(Vector2 dir)
+    {
+        transform.up = dir;
     }
 }

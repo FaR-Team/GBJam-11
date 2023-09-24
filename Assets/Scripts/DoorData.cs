@@ -98,8 +98,9 @@ public class DoorData : MonoBehaviour
 
     public void BuyNextRoom()
     {
-        if (!isUnlocked)
+        if (!isUnlocked && PlayerController.instance.Inventory.money >= House.instance.DoorPrice)
         {
+            PlayerController.instance.Inventory.UpdateMoney(-House.instance.DoorPrice);
             NextRoom = House.instance.SpawnRoom(spawnPoint);
             UnlockDoor();
             UnlockOtherRoomsDoor();

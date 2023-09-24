@@ -13,7 +13,8 @@ public class Inventory : MonoBehaviour
     public void UpdateMoney(int intMoney)
     {
         money += intMoney;
-        moneyText.text = money.ToString();
+        if(money < 0) moneyText.text = "0";
+        else moneyText.text = money.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -24,10 +24,11 @@ public class House : MonoBehaviour
 
 
     private int availableSpaces;
-    private int doorPrice;
-    
+    private int doorPrice = 100;
+
     public int roomHeight = 9;
     public int roomWidth = 10;
+    public int DoorPrice => doorPrice;
 
     [SerializeField] private float roomTransitionTime = .3f;
     private Camera _mainCam;
@@ -40,13 +41,14 @@ public class House : MonoBehaviour
         }
 
         _mainCam = Camera.main;
-        
+        doorPrice = 100;
     }
 
     public Room SpawnRoom(Vector3 position)
     {
         if (!Habitaciones.TryGetValue(position, out Room room))
         {
+            doorPrice += 100;
             int x = (int)position.x / roomWidth;
             int y = (int)position.y / roomHeight;
             WhichRoomToSpawnPos(x, y);
@@ -55,8 +57,6 @@ public class House : MonoBehaviour
             Habitaciones.Add(position, _room);
             _room.cameraVector = new Vector3(position.x, position.y, -3);
 
-            doorPrice++;
-            
             return _room;
         }
         else return GetRoom(position);

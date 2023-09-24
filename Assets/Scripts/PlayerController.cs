@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MovementController
 {
@@ -6,6 +7,9 @@ public class PlayerController : MovementController
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject[] furniturePreviews;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private GameObject costCanvas;
+    private bool reachedPosition;
     public Inventory Inventory => inventory;
     [SerializeField] private Interactor interactor;
 
@@ -68,6 +72,23 @@ public class PlayerController : MovementController
         }
     }
 
+    public void CheckInFront()
+    {
+        var hit = Physics2D.Raycast(transform.position, transform.up, 1f, 1 << 10);
+
+        if (hit.collider != null)
+        {
+            costText.text = House.instance.DoorPrice.ToString();
+            costCanvas.SetActive(true);
+            Debug.Log("Mirando puerta");
+            // House.instance.DoorPrice
+        }
+        else
+        {
+            costCanvas.SetActive(false);
+        }
+    }
+
 
     private void Animate()
     {
@@ -75,8 +96,23 @@ public class PlayerController : MovementController
         {
             transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
             anim.SetBool("IsWalking", true);
+            reachedPosition = false;
         }
         else
+        {
+            if (!reachedPosition)
+            {
+                CheckInFront();
+                reachedPosition = true;
+            }
             anim.SetBool("IsWalking", false);
+            
+        }
+    }
+
+    protected override void Rotate(Vector2 dir)
+    {
+        base.Rotate(dir);
+        CheckInFront();
     }
 }
