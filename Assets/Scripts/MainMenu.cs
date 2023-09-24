@@ -24,9 +24,6 @@ public class MainMenu : MonoBehaviour
                 case 1:
                     ActivateControllerScreen(true);
                     break;
-                case 2:
-                    ActivateControllerScreen(false);
-                    break;
                 default:
                     blackFade.SetTrigger("StartBlackFade");
                     Invoke("LoadGame", 1.5f);
