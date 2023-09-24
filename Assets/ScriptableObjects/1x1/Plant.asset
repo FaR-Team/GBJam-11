@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plant
   m_EditorClassIdentifier: 
   Name: Plant
+  price: 10
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 74d725f5da433624b8841d31ded53166, type: 3}
   typeOfSize: 0

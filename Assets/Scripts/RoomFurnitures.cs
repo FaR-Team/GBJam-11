@@ -50,9 +50,14 @@ public class RoomFurnitures : MonoBehaviour
         // Guardamos el objeto que instanciamos en en cada PlacementData
         GameObject furniturePrefab = Instantiate(furnitureData.prefab, finalPos, Quaternion.Euler(furnitureData.VectorRotation));
         
-        if(!placeOnTop) positionToOccupy.ForEach(pos => PlacementDatasInPosition[pos].instantiatedFurniture = furniturePrefab);
+        if(!placeOnTop) 
+        {
+            PlayerController.instance.Inventory.UpdateMoney(data.price);
+            positionToOccupy.ForEach(pos => PlacementDatasInPosition[pos].instantiatedFurniture = furniturePrefab);
+        }
         else
         {
+            PlayerController.instance.Inventory.UpdateMoney(data.price * 2);
             // Si el objeto va encima de otro, lo guardamos en el PlacementData
             positionToOccupy.ForEach(pos =>
             {

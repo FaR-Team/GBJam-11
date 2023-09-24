@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NormalBed
   m_EditorClassIdentifier: 
   Name: NormalBed
+  price: 20
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: e1f68d83fea9e37419f7131258901742, type: 3}
   typeOfSize: 3

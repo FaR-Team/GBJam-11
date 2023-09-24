@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Counter
   m_EditorClassIdentifier: 
   Name: Counter
+  price: 10
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 8e0250bdc5f9fbc4cab36fb3ee024408, type: 3}
   typeOfSize: 0

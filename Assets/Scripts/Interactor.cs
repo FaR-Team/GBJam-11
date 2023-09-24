@@ -21,6 +21,7 @@ public class Interactor : MonoBehaviour
                 playerInventory.EnablePackageUI(true);
                 Destroy(placementData.instantiatedFurniture);
                 House.instance.currentRoom.roomFurnitures.RemoveDataInPositions(placementData.occupiedPositions);
+                PlayerController.instance.Inventory.UpdateMoney(-placementData.furniture.price);
 
             }
             else
@@ -29,7 +30,7 @@ public class Interactor : MonoBehaviour
                 playerInventory.EnablePackageUI(true);
                 Destroy(placementData.instantiatedFurnitureOnTop);
                 House.instance.currentRoom.roomFurnitures.RemoveTopObjectInPositions(placementData.occupiedPositions);
-
+                PlayerController.instance.Inventory.UpdateMoney(-placementData.furniture.price * 2);
             }
 
             return;

@@ -1,10 +1,20 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public FurnitureOriginalData furnitureInventory;
+    public int money;
+    public TextMeshProUGUI moneyText;
     public GameObject packageUI;
+
+
+    public void UpdateMoney(int intMoney)
+    {
+        money += intMoney;
+        moneyText.text = money.ToString();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

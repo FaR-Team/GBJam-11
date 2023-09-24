@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lamp
   m_EditorClassIdentifier: 
   Name: Lamp
+  price: 10
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: dddeeb39e2c05934abcc3d132ad3c42d, type: 3}
   typeOfSize: 0

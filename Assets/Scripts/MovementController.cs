@@ -14,6 +14,7 @@ public class MovementController : MonoBehaviour
     {
         movePoint.parent = null;
     }
+    
     protected void MoveObject()
     {
         var xInput = Input.GetAxisRaw("Horizontal");

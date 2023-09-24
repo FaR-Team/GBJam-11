@@ -2,10 +2,24 @@ using UnityEngine;
 
 public class PlayerController : MovementController
 {
+    public static PlayerController instance;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject[] furniturePreviews;
     [SerializeField] private Inventory inventory;
+    public Inventory Inventory => inventory;
     [SerializeField] private Interactor interactor;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     void Update()
     {
