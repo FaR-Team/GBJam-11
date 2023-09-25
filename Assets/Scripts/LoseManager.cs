@@ -25,12 +25,13 @@ public class LoseManager : MonoBehaviour
     public void Lose()
     {
         if (hasLost) return;
+        TimerManager.StopTimer();
         StateManager.SwitchGameOverMode();
         GameOverScreen.SetActive(true);
         hasLost = true;
         scoreText.text = House.instance.Score.ToString();
         AudioManager.instance.ChangeMusic(loseMusic);
-        Debug.Log("Lose");
+        //Debug.Log("Lose");
     }
 
     void Update()
