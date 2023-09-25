@@ -16,7 +16,7 @@ MonoBehaviour:
   price: 20
   priceCombo: 40
   size: {x: 2, y: 1}
-  prefab: {fileID: 6084753773558195295, guid: c3516afda6bdd144a990be98749e154a, type: 3}
+  prefab: {fileID: 5954944119824593527, guid: 48f35a3185905dc48990fc630a5e9c1d, type: 3}
   typeOfSize: 3
   compatibles: []
   sprites:
