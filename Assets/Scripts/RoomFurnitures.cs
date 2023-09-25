@@ -55,7 +55,7 @@ public class RoomFurnitures : MonoBehaviour
         {
             if(TryGetComponent(out MainRoom room))
             {
-                MainRoom.availableTiles -= data.size.x * data.size.y;
+                MainRoom.instance.availableTiles -= data.size.x * data.size.y;
             }
 
             PlayerController.instance.Inventory.UpdateMoney(data.price);

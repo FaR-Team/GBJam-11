@@ -4,10 +4,23 @@ using UnityEngine;
 public class MainRoom : Room
 {
 
-    private static int tiles = 54;
-    public static int availableTiles;
+    private int tiles = 54;
+    public int availableTiles;
 
     public static MainRoom instance;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     protected override void Start()
     {
@@ -38,6 +51,6 @@ public class MainRoom : Room
 
     private void Lose()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Loco sos malardo");
     }
 }

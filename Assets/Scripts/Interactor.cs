@@ -17,7 +17,7 @@ public class Interactor : MonoBehaviour
 
             if (placementData.furnitureOnTop == null)
             {
-                MainRoom.availableTiles += placementData.furniture.size.x * placementData.furniture.size.y;
+                MainRoom.instance.availableTiles += placementData.furniture.size.x * placementData.furniture.size.y;
                 playerInventory.furnitureInventory = placementData.furniture;
                 playerInventory.EnablePackageUI(true);
                 Destroy(placementData.instantiatedFurniture);

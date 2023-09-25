@@ -2174,7 +2174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858450940}
-  - component: {fileID: 858450941}
+  - component: {fileID: 858450943}
   - component: {fileID: 858450942}
   m_Layer: 0
   m_Name: RoomMain
@@ -2206,27 +2206,6 @@ Transform:
   m_Father: {fileID: 943811824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &858450941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858450939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b51d844c824ba14a88c97b8f92f5cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doors:
-  - {fileID: 1018590026}
-  - {fileID: 1018590026}
-  - {fileID: 66243693}
-  - {fileID: 996624852}
-  cameraVector: {x: 0, y: 0, z: 0}
-  isMain: 1
-  paletteNum: 0
-  roomFurnitures: {fileID: 0}
 --- !u!114 &858450942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,6 +2218,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5133c3e83fa58c46a42ca2222a009ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &858450943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858450939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e3b14e9353efc4a8a3c016383f6f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors:
+  - {fileID: 1018590026}
+  - {fileID: 66243693}
+  - {fileID: 996624852}
+  cameraVector: {x: 0, y: 0, z: 0}
+  paletteNum: 0
+  roomFurnitures: {fileID: 0}
+  availableTiles: 0
 --- !u!1 &871330502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,6 +3336,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0169168ff310264292d9af4de8dbe59, type: 2}
   - {fileID: 11400000, guid: 8c75c6b256f73804a97aaca7735993a7, type: 2}
   - {fileID: 11400000, guid: 8881a405225e9cb4b81f24442428edda, type: 2}
+  - {fileID: 11400000, guid: ede28d95f2f33094f90757df077d0a95, type: 2}
   wife: {fileID: 11400000, guid: 5ef2e2c77af1e7d478780c49e1c6965f, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
