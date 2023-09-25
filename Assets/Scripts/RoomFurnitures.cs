@@ -53,6 +53,11 @@ public class RoomFurnitures : MonoBehaviour
         
         if(!placeOnTop) 
         {
+            if(TryGetComponent(out MainRoom room))
+            {
+                MainRoom.availableTiles -= data.size.x * data.size.y;
+            }
+
             PlayerController.instance.Inventory.UpdateMoney(data.price);
             House.instance.UpdateScore(data.price);
             positionToOccupy.ForEach(pos => PlacementDatasInPosition[pos].instantiatedFurniture = furniturePrefab);

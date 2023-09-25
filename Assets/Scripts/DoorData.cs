@@ -69,7 +69,6 @@ public class DoorData : MonoBehaviour
                 //NextRoom.doors[1].UnlockDoor();
                 break;
             case DoorType.Bottom:
-                if (NextRoom.isMain) return;
                 NextRoom.doors.First(x => x.doorType == DoorType.Top)?.UnlockDoor();
                // NextRoom.doors[0].UnlockDoor();
                 break;
