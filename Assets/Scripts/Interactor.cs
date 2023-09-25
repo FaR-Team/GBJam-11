@@ -32,8 +32,8 @@ public class Interactor : MonoBehaviour
                 Destroy(placementData.instantiatedFurnitureOnTop);
                 placementData.instantiatedFurnitureOnTop = null;
                 House.instance.currentRoom.roomFurnitures.RemoveTopObjectInPositions(placementData.occupiedPositions);
-                PlayerController.instance.Inventory.UpdateMoney(-placementData.furnitureOnTop.price * 2);
-                House.instance.UpdateScore(-placementData.furnitureOnTop.price * 2);
+                PlayerController.instance.Inventory.UpdateMoney(-placementData.furnitureOnTop.priceCombo);
+                House.instance.UpdateScore(-placementData.furnitureOnTop.priceCombo);
             }
 
             AudioManager.instance.PlaySfx(GlobalSfx.Grab);
