@@ -20,6 +20,7 @@ MonoBehaviour:
   typeOfSize: 1
   compatibles:
   - {fileID: 11400000, guid: 5ef2e2c77af1e7d478780c49e1c6965f, type: 2}
+  - {fileID: 11400000, guid: 03e12326fc5b8dd45aed3687ec969955, type: 2}
   sprites:
   - {fileID: 1570763965, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}
   - {fileID: -396865226, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}

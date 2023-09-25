@@ -40,6 +40,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2175490495
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Furniture
+    uniqueID: 225030083
+    locked: 0
+  - name: TopFurniture
+    uniqueID: 2059975939
+    locked: 0
+  - name: Preview
+    uniqueID: 1850601279
+    locked: 0
+  - name: Canvas
+    uniqueID: 1622856267
     locked: 0
