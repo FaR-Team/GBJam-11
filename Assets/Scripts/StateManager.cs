@@ -21,7 +21,10 @@ public class StateManager : MonoBehaviour
     {
         return currentGameState == GameState.Lose;
     }
-
+    public static void StartGame()
+    {
+        currentGameState = GameState.Moving;
+    }
     public static void SwitchEditMode()
     {
         currentGameState = currentGameState == GameState.Moving ? GameState.Editing : GameState.Moving;

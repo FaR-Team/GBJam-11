@@ -8,7 +8,11 @@ public class TimerManager : MonoBehaviour
 
     public static Action timerAction;
 
-
+    private void Start()
+    {
+        time = maxTime;
+        StateManager.StartGame();
+    }
 
     private void Update()
     {
