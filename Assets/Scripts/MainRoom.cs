@@ -38,13 +38,15 @@ public class MainRoom : Room
 
     public void CheckIfLose(FurnitureOriginalData inventoryFurnitureData)
     {
-
         if (inventoryFurnitureData.size.x * inventoryFurnitureData.size.y < availableTiles) return;
         
         foreach (PlacementData placementData in roomFurnitures.PlacementDatasInPosition.Values)
         {
-            if (placementData.furniture.compatibles.Contains(inventoryFurnitureData) || 
-                placementData.furnitureOnTop != null) return;
+            if (placementData.furniture.compatibles.Contains(inventoryFurnitureData) && placementData.furnitureOnTop != null)
+            {
+                Debug.Log("DEBERIA PERDER");
+                return;
+            }
             
         }
         LoseManager.Lose();
