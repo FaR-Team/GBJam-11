@@ -49,6 +49,6 @@ public class MainRoom : Room
             }
             
         }
-        LoseManager.Lose();
+        LoseManager.Instance.Lose();
     }
 }

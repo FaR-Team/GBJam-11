@@ -99,6 +99,7 @@ Material:
     - _BumpFace: 0
     - _BumpOutline: 0
     - _ColorMask: 15
+    - _CullMode: 0
     - _Diffuse: 0.5
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
@@ -123,6 +124,7 @@ Material:
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
+    - _Sharpness: 0
     - _SpecularPower: 2
     - _Stencil: 0
     - _StencilComp: 8
@@ -168,8 +170,7 @@ MonoBehaviour:
   materialHashCode: 106086022
   m_Version: 1.1.0
   m_SourceFontFileGUID: bb68dcd555d381b428d8e75d7c0b60db
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: bb68dcd555d381b428d8e75d7c0b60db,
-    type: 3}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: bb68dcd555d381b428d8e75d7c0b60db, type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:

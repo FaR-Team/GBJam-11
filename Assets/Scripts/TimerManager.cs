@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    private static float maxTime = 300f;
+    private static float maxTime = 10f;
     private static float time;
 
     public static Action timerAction;
@@ -18,7 +18,7 @@ public class TimerManager : MonoBehaviour
     public static void Timer()
     {
         time -= Time.deltaTime;
-        if (time <= 0) LoseManager.Lose();
+        if (time <= 0) LoseManager.Instance.Lose();
     }
     public static void StartTimer()
     {

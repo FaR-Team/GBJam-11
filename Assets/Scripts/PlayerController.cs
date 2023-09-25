@@ -31,6 +31,7 @@ public class PlayerController : MovementController
 
         if (StateManager.IsPaused()) return;
         if (StateManager.IsEditing()) return;
+        if (StateManager.IsGameOver()) return;
 
         Animate();
         MoveObject();

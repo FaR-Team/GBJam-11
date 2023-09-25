@@ -17,8 +17,18 @@ public class StateManager : MonoBehaviour
         return currentGameState == GameState.Editing;
     }
 
+    public static bool IsGameOver()
+    {
+        return currentGameState == GameState.Lose;
+    }
+
     public static void SwitchEditMode()
     {
         currentGameState = currentGameState == GameState.Moving ? GameState.Editing : GameState.Moving;
+    }
+
+    public static void SwitchGameOverMode()
+    {
+        currentGameState = GameState.Lose;
     }
 }
