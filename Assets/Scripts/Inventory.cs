@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public int money;
     public TextMeshProUGUI moneyText;
     public GameObject packageUI;
+    [SerializeField] private TextMeshProUGUI text_name;
 
 
     public void UpdateMoney(int intMoney)
@@ -27,10 +28,12 @@ public class Inventory : MonoBehaviour
         furnitureInventory = Package._furnitureInPackage;
         Package.package.SetActive(false);
         EnablePackageUI(true);
+        text_name.text = furnitureInventory.Name;
     }
 
     public void EnablePackageUI(bool enabled)
     {
         packageUI.SetActive(enabled);
+        
     }
 }
