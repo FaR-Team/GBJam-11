@@ -54,7 +54,7 @@ public class House : MonoBehaviour
         {
             // Agregamos el score antes de aumentarlo
             UpdateScore(doorPrice);
-            doorPrice += 100;
+            doorPrice += 200;
             int x = (int)position.x / roomWidth;
             int y = (int)position.y / roomHeight;
             WhichRoomToSpawnPos(x, y);

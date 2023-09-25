@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TMPro;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,6 +16,7 @@ public class PackagesGenerator : MonoBehaviour
     [SerializeField] private List<FurnitureOriginalData> possibleFurnitures;
     [SerializeField] private List<FurnitureOriginalData> deletedFurnitures;
 
+    [SerializeField] private List<FurnitureOriginalData> tutorialObjects;
     private void Start()
     {
         InvokeRepeating("GeneratePackage", 2f, 5f);
@@ -24,10 +25,21 @@ public class PackagesGenerator : MonoBehaviour
 
     private void GeneratePackage()
     {
-        if (packageGO.activeInHierarchy) return;
+        if (packageGO.activeInHierarchy || TutorialHandler.instance.onTutorial) return;
+        
         TimerManager.StartTimer();
         packageGO.SetActive(true);
-        FurnitureOriginalData packageData = packageGO.GetComponent<Package>().furnitureInPackage = GetRandomFurniture();
+
+        FurnitureOriginalData packageData;
+        if (tutorialObjects.Count > 0)
+        {
+            TutorialHandler.instance.onTutorial = true;
+            packageData = packageGO.GetComponent<Package>().furnitureInPackage = tutorialObjects[0];
+            tutorialObjects.RemoveAt(0);
+            return;
+        }
+
+        packageData = packageGO.GetComponent<Package>().furnitureInPackage = GetRandomFurniture();
         gameObject.transform.parent.GetComponent<MainRoom>().CheckIfLose(packageData);
         
     }
@@ -65,6 +77,7 @@ public class PackagesGenerator : MonoBehaviour
 
         return furniture;
     }
+    
 
     private int GetRandomValueIn(List<FurnitureOriginalData> list)
     {

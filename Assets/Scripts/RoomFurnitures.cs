@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Playables;
 public class RoomFurnitures : MonoBehaviour
 {
     public Dictionary<Vector2, PlacementData> PlacementDatasInPosition = new();
+    private bool firstCombo = false;
 
     public bool PlaceFurniture(Vector2 position, FurnitureData furnitureData)
     {
@@ -65,10 +66,15 @@ public class RoomFurnitures : MonoBehaviour
         else
         {
             // Si el objeto va encima de otro, lo guardamos en el PlacementData y damos doble score por combo
+            if (!firstCombo)
+            {
+                firstCombo = true;
+                TutorialHandler.instance.CompletedStep();
+            }
             PlayerController.instance.Inventory.UpdateMoney(data.price * 2);
             House.instance.UpdateScore(data.price * 2);
             
-            positionToOccupy.ForEach(pos =>
+            PlacementDatasInPosition[finalPos].occupiedPositions.ForEach(pos =>
             {
                 PlacementDatasInPosition[pos].instantiatedFurnitureOnTop = furniturePrefab;
                 PlacementDatasInPosition[pos].furnitureOnTop = data;

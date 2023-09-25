@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
     [SerializeField] private LayerMask doorLayer;
+    [SerializeField] private TextMeshProUGUI text_name;
     public void Interact(Inventory playerInventory)
     {
         var gridPosition = GridManager.PositionToCellCenter(transform.position);
@@ -17,26 +19,29 @@ public class Interactor : MonoBehaviour
 
             if (placementData.furnitureOnTop == null)
             {
+                text_name.text = placementData.furniture.Name;
                 MainRoom.instance.availableTiles += placementData.furniture.size.x * placementData.furniture.size.y;
                 playerInventory.furnitureInventory = placementData.furniture;
                 playerInventory.EnablePackageUI(true);
-                Destroy(placementData.instantiatedFurniture);
-                House.instance.currentRoom.roomFurnitures.RemoveDataInPositions(placementData.occupiedPositions);
                 PlayerController.instance.Inventory.UpdateMoney(-placementData.furniture.price);
                 House.instance.UpdateScore(-placementData.furniture.price);
+                Destroy(placementData.instantiatedFurniture);
+                House.instance.currentRoom.roomFurnitures.RemoveDataInPositions(placementData.occupiedPositions);
 
             }
             else
             {
+                text_name.text = placementData.furnitureOnTop.Name;
                 playerInventory.furnitureInventory = placementData.furnitureOnTop;
                 playerInventory.EnablePackageUI(true);
+                PlayerController.instance.Inventory.UpdateMoney(-placementData.furnitureOnTop.priceCombo);
+                House.instance.UpdateScore(-placementData.furnitureOnTop.priceCombo);
                 Destroy(placementData.instantiatedFurnitureOnTop);
                 placementData.instantiatedFurnitureOnTop = null;
                 House.instance.currentRoom.roomFurnitures.RemoveTopObjectInPositions(placementData.occupiedPositions);
-                PlayerController.instance.Inventory.UpdateMoney(-placementData.furnitureOnTop.priceCombo);
-                House.instance.UpdateScore(-placementData.furnitureOnTop.priceCombo);
             }
 
+            
             AudioManager.instance.PlaySfx(GlobalSfx.Grab);
 
             return;

@@ -40,7 +40,7 @@ public class PlayerController : MovementController
 
     private void SwitchEditingMode()
     {
-        if (!Input.GetKeyDown(KeyCode.Space) || (IsMoving && StateManager.currentGameState == GameState.Moving)) return;
+        if (!Input.GetKeyDown(KeyCode.Space) || (IsMoving && StateManager.currentGameState == GameState.Moving) || StateManager.currentGameState == GameState.Pause) return;
 
         FurnitureOriginalData furnitureData = inventory.furnitureInventory;
 

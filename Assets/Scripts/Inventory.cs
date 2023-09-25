@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
         if (!collision.CompareTag("Package")) return;
 
         if (furnitureInventory != null) return;
+        
+        if(TutorialHandler.instance) TutorialHandler.instance.CompletedStep();
         TimerManager.StopTimer();
 
         furnitureInventory = Package._furnitureInPackage;
