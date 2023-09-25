@@ -3627,12 +3627,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ede28d95f2f33094f90757df077d0a95, type: 2}
   - {fileID: 11400000, guid: 2645e4539e668d44f8a49b3c0654ccca, type: 2}
   - {fileID: 11400000, guid: 845ccd4d90144b341be38d94a33c57e6, type: 2}
-  - {fileID: 11400000, guid: e7664b1a2aee91c49b66e4cb9461b0c1, type: 2}
   - {fileID: 11400000, guid: 5a451b65358f0484bbe90e6f153e1db2, type: 2}
   wife: {fileID: 11400000, guid: 5ef2e2c77af1e7d478780c49e1c6965f, type: 2}
   onePercent:
   - {fileID: 11400000, guid: c9a8abdc44c79de41a95d4026f078a8a, type: 2}
   - {fileID: 11400000, guid: 03e12326fc5b8dd45aed3687ec969955, type: 2}
+  - {fileID: 11400000, guid: e7664b1a2aee91c49b66e4cb9461b0c1, type: 2}
   packageGO: {fileID: 1448616550}
   mainDoor: {fileID: 1385969499}
   possibleFurnitures: []
