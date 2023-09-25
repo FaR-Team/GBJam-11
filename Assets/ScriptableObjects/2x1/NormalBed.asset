@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: NormalBed
   price: 20
+  priceCombo: 40
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: e1f68d83fea9e37419f7131258901742, type: 3}
   typeOfSize: 3
-  compatibles: []
+  compatibles:
+  - {fileID: 11400000, guid: 5ef2e2c77af1e7d478780c49e1c6965f, type: 2}
   sprites:
   - {fileID: 430621541, guid: 4d25eb57f4ace6d4094852f265b457d9, type: 3}
   - {fileID: 176327971, guid: 4d25eb57f4ace6d4094852f265b457d9, type: 3}

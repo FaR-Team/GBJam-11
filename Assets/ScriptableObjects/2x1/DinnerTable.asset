@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: DinnerTable
   price: 20
+  priceCombo: 40
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 3bb30eaf4d21ae049a3a2770c70e3377, type: 3}
   typeOfSize: 3

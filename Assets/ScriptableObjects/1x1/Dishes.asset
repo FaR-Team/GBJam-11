@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Dishes
   price: 10
+  priceCombo: 20
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: d83266bb1e61ec140aa3ae4b220ed6a9, type: 3}
   typeOfSize: 0

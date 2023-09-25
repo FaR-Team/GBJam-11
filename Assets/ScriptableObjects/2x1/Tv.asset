@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Tv
   price: 20
+  priceCombo: 40
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: bac6742669297f44fbb660acc504e2f1, type: 3}
   typeOfSize: 3

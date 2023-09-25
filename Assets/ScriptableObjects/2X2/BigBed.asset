@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: BigBed
   price: 40
+  priceCombo: 80
   size: {x: 2, y: 2}
   prefab: {fileID: 6084753773558195295, guid: 441e54c1ad27c514fb47f8e56e44aeac, type: 3}
   typeOfSize: 1
-  compatibles: []
+  compatibles:
+  - {fileID: 11400000, guid: 5ef2e2c77af1e7d478780c49e1c6965f, type: 2}
   sprites:
   - {fileID: 1570763965, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}
   - {fileID: -396865226, guid: a14ef7028d148d04eaf8280c003b3192, type: 3}

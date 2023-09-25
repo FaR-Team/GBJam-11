@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sword
   price: 20
+  priceCombo: 40
   size: {x: 2, y: 1}
   prefab: {fileID: 6084753773558195295, guid: 15eab611baae5f44fb2aa87225a64c33, type: 3}
   typeOfSize: 3

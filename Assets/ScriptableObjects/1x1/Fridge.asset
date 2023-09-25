@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fridge
   price: 10
+  priceCombo: 20
   size: {x: 1, y: 1}
   prefab: {fileID: 9156776624177822006, guid: 9c6cf5d2a447b3a4e944e13b5733a892, type: 3}
   typeOfSize: 0

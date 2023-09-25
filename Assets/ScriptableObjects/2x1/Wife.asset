@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Wife
   price: 0
+  priceCombo: 10
   size: {x: 2, y: 1}
   prefab: {fileID: 6084753773558195295, guid: c3516afda6bdd144a990be98749e154a, type: 3}
   typeOfSize: 3

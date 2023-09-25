@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Oven
   price: 10
+  priceCombo: 20
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: a2728f189d68dd9419fcab83ed824102, type: 3}
   typeOfSize: 0

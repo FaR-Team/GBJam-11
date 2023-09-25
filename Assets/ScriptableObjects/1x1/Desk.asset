@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Desk
   price: 10
+  priceCombo: 20
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 647234363fb737b48a59a3d431e03d96, type: 3}
   typeOfSize: 0

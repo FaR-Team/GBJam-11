@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Couch
   price: 20
+  priceCombo: 40
   size: {x: 2, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 88d5892fcfe7aee43958631d0218d1b3, type: 3}
   typeOfSize: 3

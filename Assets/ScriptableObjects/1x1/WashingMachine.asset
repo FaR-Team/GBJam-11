@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: WashingMachine
   price: 10
+  priceCombo: 20
   size: {x: 1, y: 1}
   prefab: {fileID: 5954944119824593527, guid: 89c5b800cde774b47879870441d13b79, type: 3}
   typeOfSize: 0
