@@ -8,6 +8,7 @@ public class LoseManager : MonoBehaviour
     public static LoseManager Instance;
     public TextMeshProUGUI scoreText;
     public GameObject GameOverScreen;
+    private bool hasLost;
 
     private void Awake() {
         if (Instance == null)
@@ -24,8 +25,13 @@ public class LoseManager : MonoBehaviour
     {
         StateManager.SwitchGameOverMode();
         GameOverScreen.SetActive(true);
+        hasLost = true;
         scoreText.text = House.instance.Score.ToString();
-        if (Input.GetMouseButtonDown(0))
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && hasLost)
         {
             SceneManager.LoadScene(0);
         }
