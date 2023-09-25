@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
         if (!collision.CompareTag("Package")) return;
 
         if (furnitureInventory != null) return;
+        TimerManager.StopTimer();
 
         furnitureInventory = Package._furnitureInPackage;
         Package.package.SetActive(false);

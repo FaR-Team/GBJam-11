@@ -30,7 +30,7 @@ public class MainRoom : Room
     }
     public void InitMainRoom()
     {
-        House.instance.Habitaciones.Add(this.transform.position, this);
+        House.instance.Habitaciones.Add(transform.position, this);
         House.instance.currentRoom = this;
         paletteNum = 0;
         cameraVector = new Vector3(transform.position.x, transform.position.y, -3);
@@ -38,19 +38,15 @@ public class MainRoom : Room
 
     public void CheckIfLose(FurnitureOriginalData inventoryFurnitureData)
     {
-        if (inventoryFurnitureData.size.x * inventoryFurnitureData.size.y <= availableTiles) return;
+
+        if (inventoryFurnitureData.size.x * inventoryFurnitureData.size.y < availableTiles) return;
         
         foreach (PlacementData placementData in roomFurnitures.PlacementDatasInPosition.Values)
         {
             if (placementData.furniture.compatibles.Contains(inventoryFurnitureData) || 
                 placementData.furnitureOnTop != null) return;
-
+            
         }
-        Lose(); 
-    }
-
-    private void Lose()
-    {
-        Debug.Log("Loco sos malardo");
+        LoseManager.Lose();
     }
 }

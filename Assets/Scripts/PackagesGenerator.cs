@@ -23,7 +23,7 @@ public class PackagesGenerator : MonoBehaviour
     private void GeneratePackage()
     {
         if (packageGO.activeInHierarchy) return;
-
+        TimerManager.StartTimer();
         packageGO.SetActive(true);
 
         FurnitureOriginalData packageData = packageGO.GetComponent<Package>().furnitureInPackage = GetRandomFurniture();
@@ -74,15 +74,5 @@ public class PackagesGenerator : MonoBehaviour
         {
             possibleFurnitures.Add(f);
         }
-
-    }
-}
-
-public class Timer : MonoBehaviour
-{
-
-    private void Update()
-    {
-        
     }
 }

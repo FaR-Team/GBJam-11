@@ -156,6 +156,5 @@ public class DoorData : MonoBehaviour
                 doorData.UnlockDoor();
             }
         }
-        
     }
 }

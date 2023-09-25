@@ -1,1 +1,1 @@
-﻿public enum GameState { Pause, Moving, Editing };
+﻿public enum GameState { Pause, Moving, Editing, Lose };
