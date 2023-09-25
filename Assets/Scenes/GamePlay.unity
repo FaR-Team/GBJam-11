@@ -4792,8 +4792,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1622856267
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1926131094
 RectTransform:
@@ -5427,6 +5427,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2216017494161320627, guid: f45fd9392ad1c6e48b35b97a19793f76, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2216017494996933812, guid: f45fd9392ad1c6e48b35b97a19793f76, type: 3}
       propertyPath: m_Name
       value: Tutorial
