@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    private static float maxTime = 300f;
+    [SerializeField] private static float maxTime = 300f;
     private static float time;
 
     public static Action timerAction;

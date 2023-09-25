@@ -7,6 +7,7 @@ public class PackagesGenerator : MonoBehaviour
 {
     [SerializeField] private FurnitureOriginalData[] allFurnitures;
     [SerializeField] private FurnitureOriginalData wife;
+    [SerializeField] private FurnitureOriginalData[] onePercent;
     private bool isWife;
     private int quantityOfObjectSpawned = 0;
 
@@ -52,6 +53,11 @@ public class PackagesGenerator : MonoBehaviour
             isWife = true;
             Debug.Log("Sweetieee. I'm Home <3");
             return wife;
+        }
+
+        if(Random.Range(0, 1f) <= 0.01f)
+        {
+            return onePercent[Random.Range(0, onePercent.Length)];
         }
 
         if (deletedFurnitures.Count != 0 && Random.Range(0, 1f) <= 0.5f)

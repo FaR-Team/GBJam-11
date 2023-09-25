@@ -8,6 +8,7 @@ public class LoseManager : MonoBehaviour
     public static LoseManager Instance;
     public TextMeshProUGUI scoreText;
     public GameObject GameOverScreen;
+    public AudioClip loseMusic;
     private bool hasLost;
 
     private void Awake() {
@@ -23,10 +24,13 @@ public class LoseManager : MonoBehaviour
 
     public void Lose()
     {
+        if (hasLost) return;
         StateManager.SwitchGameOverMode();
         GameOverScreen.SetActive(true);
         hasLost = true;
         scoreText.text = House.instance.Score.ToString();
+        AudioManager.instance.ChangeMusic(loseMusic);
+        Debug.Log("Lose");
     }
 
     void Update()

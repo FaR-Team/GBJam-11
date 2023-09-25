@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6582f407bbc7b741a5cf2ee76b2b532, type: 3}
   m_Name: Iluminati
   m_EditorClassIdentifier: 
-  Name: '?'
-  price: 0
-  priceCombo: 0
+  Name: Confirmed
+  price: 40
+  priceCombo: 80
   size: {x: 2, y: 2}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6084753773558195295, guid: 30e4fc0ea83cb3e46b763981004b32f0, type: 3}
   typeOfSize: 1
   compatibles: []
   sprites:
   - {fileID: 1508561150, guid: ec830e396b2684d488182d2e7758dbec, type: 3}
+  - {fileID: 281228562, guid: ec830e396b2684d488182d2e7758dbec, type: 3}
+  - {fileID: 585170074, guid: ec830e396b2684d488182d2e7758dbec, type: 3}
+  - {fileID: -1553342661, guid: ec830e396b2684d488182d2e7758dbec, type: 3}

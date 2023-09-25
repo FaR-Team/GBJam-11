@@ -31,6 +31,12 @@ public class AudioManager : MonoBehaviour
         sfxAudioSource.PlayOneShot(clip);
     }
 
+    public void ChangeMusic(AudioClip clip)
+    {
+        musicAudioSource.clip = clip;
+        musicAudioSource.Play();
+    }
+
     public void PlaySfx(GlobalSfx clipKey)
     {
         sfxAudioSource.pitch = 1f;
