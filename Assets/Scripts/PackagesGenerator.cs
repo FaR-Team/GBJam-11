@@ -26,7 +26,8 @@ public class PackagesGenerator : MonoBehaviour
 
         packageGO.SetActive(true);
 
-        packageGO.GetComponent<Package>().furnitureInPackage = GetRandomFurniture();
+        FurnitureOriginalData packageData = packageGO.GetComponent<Package>().furnitureInPackage = GetRandomFurniture();
+        gameObject.transform.parent.GetComponent<MainRoom>().CheckIfLose(packageData);
     }
 
     private FurnitureOriginalData GetRandomFurniture()
@@ -74,5 +75,14 @@ public class PackagesGenerator : MonoBehaviour
             possibleFurnitures.Add(f);
         }
 
+    }
+}
+
+public class Timer : MonoBehaviour
+{
+
+    private void Update()
+    {
+        
     }
 }
