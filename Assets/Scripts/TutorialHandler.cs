@@ -54,9 +54,20 @@ public class TutorialHandler : MonoBehaviour
     {
         if(!tutorialObject.activeSelf || animPlaying) return;
         tutorialObject.SetActive(false);
-        StateManager.currentGameState = GameState.Moving;
-        
         if(tutorialStep != 3) onTutorial = false;
-        if(tutorialStep >= 4) Destroy(gameObject);
+        
+        StateManager.currentGameState = GameState.Moving;
+
+        if (tutorialStep == 4)
+        {
+            CompletedStep();
+            return;
+        }
+        
+        
+        if(tutorialStep > 4)
+        {
+            Destroy(gameObject);
+        }
     }
 }
