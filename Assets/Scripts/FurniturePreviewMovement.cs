@@ -41,12 +41,12 @@ public class FurniturePreviewMovement : MovementController
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
         {
             GetComponent<FurniturePreview>().Rotate();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z))
         {
             GetComponent<FurniturePreview>().PutFurniture();
         }

@@ -33,7 +33,7 @@ public class TutorialHandler : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) CloseTutorialWindow();
+        if(Input.anyKeyDown) CloseTutorialWindow();
     }
 
     public void CompletedStep()

@@ -67,7 +67,7 @@ public class PlayerController : MovementController
 
     private void CheckInteract()
     {
-        if(Input.GetMouseButtonDown(0) && !IsMoving)
+        if((Input.GetMouseButtonDown(0) && !IsMoving) || (Input.GetKeyDown(KeyCode.Z) && !IsMoving) || (Input.GetKeyDown(KeyCode.J) && !IsMoving))
         {
             interactor.Interact(inventory);
         }
@@ -106,7 +106,6 @@ public class PlayerController : MovementController
                 reachedPosition = true;
             }
             anim.SetBool("IsWalking", false);
-            
         }
     }
 
